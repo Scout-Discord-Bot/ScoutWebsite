@@ -1,0 +1,53 @@
+/* Reset some default styling of create-react-app */
+.App {
+  text-align: left;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: local('Lexend'), url('../public/fonts/Lexend.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Lexend', sans-serif;
+}
+
+
+/* Style the navbar */
+.navbar {
+  background-color: #20232a;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style the brand name */
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+/* Style the navigation links */
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem; /* Adjust the gap between links */
+}
+
+.navbar-nav li {
+  /* You might want to add more styling to the nav links here */
+}
+
+.navbar-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Add styling for the active link, hover, focus, etc. */
+.navbar-nav a:hover {
+  text-decoration: underline;
+}
