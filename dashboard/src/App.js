@@ -8,12 +8,23 @@ function App() {
         <div className="navbar-brand">Scout</div>
         <ul className="navbar-nav">
           <li><a href="/">Home</a></li>
-          <li><a href="/settings">Settings</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/invite">Invite</a></li>
+          <li><a href="/support">Support Server</a></li>
         </ul>
+        <button class="dashboard-button">Dashboard</button>
       </nav>
-      {/* Add other components and content here */}
+
+      <div className="splashtext">
+        <h2 className='splashtexttop'>Introducing the next Discord Moderation and Utility Bot...</h2>
+        <h1>Scout</h1>
+        <h2 className='motto'>"Guiding Your Server's Journey with Precision and Care"</h2>
+
+      </div>
+      <div className="features">
+      </div>
     </div>
+
   );
 }
 

@@ -1,7 +1,7 @@
 /* Reset some default styling of create-react-app */
 .App {
   text-align: left;
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
 }
 
@@ -17,9 +17,9 @@ body {
 
 /* Style the navbar */
 .navbar {
-  background-color: #20232a;
+  background-color: #f2f2f2;
   padding: 1rem;
-  color: white;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +27,7 @@ body {
 
 /* Style the brand name */
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 /* Style the navigation links */
@@ -35,19 +35,100 @@ body {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 1rem; /* Adjust the gap between links */
+  gap: 1.5rem;
+  /* Adjust the gap between links */
 }
 
-.navbar-nav li {
-  /* You might want to add more styling to the nav links here */
-}
+
 
 .navbar-nav a {
-  color: white;
+  color: black;
   text-decoration: none;
+  position: relative;
+  display: inline-block;
+  /* Needed to provide a reference for the absolute positioning of ::after */
 }
 
-/* Add styling for the active link, hover, focus, etc. */
-.navbar-nav a:hover {
-  text-decoration: underline;
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  /* Adjust the height of the underline as needed */
+  background-color: black;
+  /* Set underline color */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Center the underline */
+  transition: width 0.3s ease-in-out;
+  /* Adjust the duration and easing function as needed */
 }
+
+.navbar-nav a:hover::after {
+  width: 100%;
+  /* Underline expands to full width on hover */
+}
+
+.splashtext h1 {
+  font-size: 250px; /* Original font size */
+  transition: transform 0.3s ease-in-out; /* Add transition effect */
+  text-align: center;
+  margin: auto;
+}
+
+.splashtext h1:hover {
+  transform: scale(1.1); /* Enlarge the text by 10% upon hover */
+}
+
+
+.splashtexttop {
+  font-size: 30px;
+  text-align: center;
+  color: #69DC9E;
+}
+
+.motto {
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+}
+
+.dashboard-button {
+  font-family: 'Lexend', sans-serif;
+  padding: 10px 20px;
+  background-color: #69DC9E;
+  color: white;
+  border: 2px solid #69DC9E;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.dashboard-button:hover {
+  background-color: #5bbd88;
+  border-color: #5bbd88;
+}
+
+.card {
+  background-color: #f8f9fa;
+  /* light grey background */
+  border-radius: 10px;
+  /* rounded corners */
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.2);
+  /* subtle shadow */
+}
+
+.card-title {
+  font-size: 1.5em;
+  /* adjust the font size of card titles */
+  color: #007bff;
+  /* set the color of card titles */
+}
+
+.card-text {
+  color: #495057;
+  /* set the color of card text */
+}
+
