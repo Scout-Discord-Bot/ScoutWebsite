@@ -13,11 +13,11 @@ async function main() {
     try {
         await client.connect();
         console.log("Connected to the database");
-        
+
         app.get('/api/auth/discord/redirect', async (req, res) => {
             try {
                 const { code } = req.query;
-                
+
                 if (code) {
                     const formData = new url.URLSearchParams({
                         client_id: process.env.CLIENTID,
@@ -43,22 +43,37 @@ async function main() {
                             }
                         });
 
+                        const guilds = await axios.get('https://discord.com/api/v10/users/@me/guilds', {
+                            headers: {
+                                'Authorization': `Bearer ${access}`,
+                            }
+                        });
+
+
                         // Date and timestamp
                         const timestamp = new Date();
                         timestamp.setHours(timestamp.getHours() + 10); // Sydney is UTC+10
                         userinfo.data.timestamp = timestamp;
 
                         // Insert data into MongoDB
+                        // Combine user and guild data
+                        const userData = {
+                            ...userinfo.data,
+                            guilds: guilds.data, // Add guild data here
+                            timestamp: timestamp
+                        };
+
+                        // Insert data into MongoDB
                         const collection = client.db("websiteData").collection("oauthData");
                         const filter = { id: userinfo.data.id };
                         const update = {
-                            $set: userinfo.data,
+                            $set: userData,
                             $currentDate: { lastModified: true }
                         };
 
                         const result = await collection.updateOne(filter, update, { upsert: true });
                         console.log(`Data inserted/updated with _id: ${result.upsertedId || result.matchedCount}`);
-                        
+
                         // Refresh token logic (if you need it)
                         const formData1 = new url.URLSearchParams({
                             client_id: process.env.CLIENTID,
@@ -82,7 +97,7 @@ async function main() {
                 res.status(500).send('Internal Server Error');
             }
         });
-        
+
         app.listen(port, () => { console.log(`Running on port ${port}`) });
     } catch (error) {
         console.error("Could not connect to the database", error);
