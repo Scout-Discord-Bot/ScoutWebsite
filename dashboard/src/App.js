@@ -13,7 +13,7 @@ function App() {
           <li><a href="/invite">Invite</a></li>
           <li><a href="/support">Support Server</a></li>
         </ul>
-        <a href="https://discord.com/api/oauth2/authorize?client_id=1157304018939424970&redirect_uri=http%3A%2F%2Flocalhost%3A1500%2Fapi%2Fauth%2Fdiscord%2Fredirect&response_type=code&scope=identify%20guilds%20email" class="loginbutton" role="button">Log In</a>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1157304018939424970&redirect_uri=http%3A%2F%2Flocalhost%3A1500%2Fapi%2Fauth%2Fdiscord%2Fredirect&response_type=code&scope=identify%20email%20guilds" class="loginbutton" role="button">Log In</a>
       </nav>
 
       <div className="splashtext">

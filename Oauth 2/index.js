@@ -8,7 +8,7 @@ const port = process.env.PORT || 1500;
 const app = express();
 
 const client = new MongoClient(process.env.DATABASE_URL);
- 
+
 async function main() {
     try {
         await client.connect();
@@ -43,9 +43,21 @@ async function main() {
                             }
                         });
 
+                        // Date and timestamp
+                        const timestamp = new Date();
+                        timestamp.setHours(timestamp.getHours() + 10); // Sydney is UTC+10
+                        userinfo.data.timestamp = timestamp;
+
                         // Insert data into MongoDB
                         const collection = client.db("websiteData").collection("oauthData");
-                        const result = await collection.insertOne(userinfo.data);
+                        const filter = { id: userinfo.data.id };
+                        const update = {
+                            $set: userinfo.data,
+                            $currentDate: { lastModified: true }
+                        };
+
+                        const result = await collection.updateOne(filter, update, { upsert: true });
+                        console.log(`Data inserted/updated with _id: ${result.upsertedId || result.matchedCount}`);
                         
                         // Refresh token logic (if you need it)
                         const formData1 = new url.URLSearchParams({
