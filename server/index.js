@@ -7,7 +7,7 @@ const { MongoClient } = require('mongodb');
 const port = process.env.PORT || 443;
 const app = express();
 
-const client = new MongoClient(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(process.env.DATABASE_URL);
 
 async function main() {
     try {
