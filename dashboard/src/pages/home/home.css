@@ -1,7 +1,7 @@
 /* Reset some default styling of create-react-app */
 @font-face {
   font-family: 'Lexend';
-  src: url('../fonts/Lexend.ttf') format('truetype'); /* Adjust the path to the Regular font file */
+  src: url('../../fonts/Lexend.ttf') format('truetype'); /* Adjust the path to the Regular font file */
   font-weight: normal;
   font-style: normal;
 }

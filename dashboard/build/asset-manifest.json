@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.ee0129cd.css",
-    "main.js": "/static/js/main.ed6fce14.js",
-    "static/js/787.545aecf5.chunk.js": "/static/js/787.545aecf5.chunk.js",
+    "main.css": "/static/css/main.07bc2410.css",
+    "main.js": "/static/js/main.140992ef.js",
+    "static/js/651.d1a0fadc.chunk.js": "/static/js/651.d1a0fadc.chunk.js",
     "static/media/Lexend.ttf": "/static/media/Lexend.8c2b86fea1234bcd4234.ttf",
     "static/media/ScoutBot-Moderation.png": "/static/media/ScoutBot-Moderation.7c0d13009be8c1b4a33f.png",
     "static/media/ScoutBot-Fun.png": "/static/media/ScoutBot-Fun.02be7f5f62952beb4389.png",
@@ -10,12 +10,12 @@
     "static/media/ScoutBot-Polls.png": "/static/media/ScoutBot-Polls.129bca1157d6fe51df26.png",
     "static/media/ScoutBot-More.png": "/static/media/ScoutBot-More.3ec6eb73cd24fc70057c.png",
     "index.html": "/index.html",
-    "main.ee0129cd.css.map": "/static/css/main.ee0129cd.css.map",
-    "main.ed6fce14.js.map": "/static/js/main.ed6fce14.js.map",
-    "787.545aecf5.chunk.js.map": "/static/js/787.545aecf5.chunk.js.map"
+    "main.07bc2410.css.map": "/static/css/main.07bc2410.css.map",
+    "main.140992ef.js.map": "/static/js/main.140992ef.js.map",
+    "651.d1a0fadc.chunk.js.map": "/static/js/651.d1a0fadc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ee0129cd.css",
-    "static/js/main.ed6fce14.js"
+    "static/css/main.07bc2410.css",
+    "static/js/main.140992ef.js"
   ]
 }
