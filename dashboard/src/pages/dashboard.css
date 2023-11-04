@@ -21,8 +21,6 @@
     /* Adjust the gap between links */
   }
   
-  
-  
   .navbar-nav a {
     color: black;
     text-decoration: none;
@@ -50,4 +48,8 @@
   .navbar-nav a:hover::after {
     width: 100%;
     /* Underline expands to full width on hover */
+  }
+
+  .loggedinuser {
+    
   }
