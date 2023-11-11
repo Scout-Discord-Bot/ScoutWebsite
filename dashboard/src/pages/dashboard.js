@@ -3,7 +3,8 @@ import './dashboard/dashboard.css';
 
 const Dashboard = (props) => {
     return (
-        <nav className="navbar">
+        <div>
+            <nav className="navbar">
                 <div className="navbar-brand">Scout</div>
                 <ul className="navbar-nav">
                     <li><a href="/">Home</a></li>
@@ -13,6 +14,7 @@ const Dashboard = (props) => {
                 </ul>
                 <h4 class='loggedinuser'>Logged in as {props.user.username}</h4>
             </nav>
+        </div>
     );
 };
 
