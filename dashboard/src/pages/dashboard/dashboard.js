@@ -1,7 +1,7 @@
 import React from 'react';
 import './dashboard.css';
 
-const About = () => (
+const Dashboard = () => (
   <div>
     <nav className="navbar">
       <div className="navbar-brand">Scout</div>
