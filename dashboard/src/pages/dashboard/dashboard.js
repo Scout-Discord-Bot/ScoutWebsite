@@ -1,8 +1,32 @@
-import React from 'react';
 import './dashboard.css';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const Dashboard = (//props
-) => {
+const Dashboard = () => {
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        if (token) {
+            axios.get('/api/user-data', {
+                headers: { Authorization: `Bearer ${token}` }
+            })
+            .then(response => {
+                setUserData(response.data.user);
+                window.history.pushState({}, document.title, "/dashboard");
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+                // Handle error
+            });
+        }
+    }, []);
+
+    if (!userData) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div>
             <nav className="navbar">
@@ -13,10 +37,10 @@ const Dashboard = (//props
                     <li><a href="/invite">Invite</a></li>
                     <li><a href="/support">Support Server</a></li>
                 </ul>
-                <h4 class='loggedinuser'>Logged in as USER</h4>
+                <h4 className='loggedinuser'>Logged in as {userData.username}</h4>
             </nav>
         </div>
-    ); //
+    );
 };
 
 export default Dashboard;
