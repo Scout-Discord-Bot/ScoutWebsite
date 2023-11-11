@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import './home/home.css';
-import moderationIcon from '../assets/ScoutBot-Moderation.png';
-import funCommandsIcon from '../assets/ScoutBot-Fun.png';
-import giveawaysicon from '../assets/ScoutBot-Giveaways.png';
-import moreIcon from '../assets/ScoutBot-More.png';
-import pollLogo from '../assets/ScoutBot-Polls.png';
+import './home.css';
+import moderationIcon from '../../assets/ScoutBot-Moderation.png';
+import funCommandsIcon from '../../assets/ScoutBot-Fun.png';
+import giveawaysicon from '../../assets/ScoutBot-Giveaways.png';
+import moreIcon from '../../assets/ScoutBot-More.png';
+import pollLogo from '../../assets/ScoutBot-Polls.png';
 import ScrollReveal from 'scrollreveal';
 
 // Rest of your component

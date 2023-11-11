@@ -1,5 +1,5 @@
 import React from 'react';
-import './support/support.css';
+import './support.css';
 
 const Support = () => (
   <div>
