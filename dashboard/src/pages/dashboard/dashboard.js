@@ -13,7 +13,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!document.cookie.includes('__cf_bm')) {
+    if (!document.cookie.includes('connect.sid')) {
         navigate('/login');
         return;
       }
