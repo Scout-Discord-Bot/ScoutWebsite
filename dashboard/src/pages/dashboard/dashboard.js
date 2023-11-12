@@ -9,7 +9,7 @@ const Dashboard = () => {
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
         if (token) {
-            axios.get('/api/user-data', { headers: { Authorization: `Bearer ${token}` } })
+            axios.get('https://api.scoutbot.me/api/user-data', { headers: { Authorization: `Bearer ${token}` } })
                 .then(response => {
                     console.log('User data response:', response.data);
                     setUserData(response.data.user);
