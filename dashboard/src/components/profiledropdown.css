@@ -1,0 +1,44 @@
+/* ProfileDropdown.css */
+
+.profile-dropdown {
+    position: absolute;
+    top: 100%; /* Position below the navbar */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  .profile-dropdown img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  
+  .profile-dropdown span {
+    display: block;
+    color: #333;
+    margin: 10px;
+  }
+  
+  .profile-dropdown button {
+    display: block;
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    border: none;
+    background-color: #f44336; /* Red color for the logout button */
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+    border-radius: 4px;
+  }
+  
+  .profile-dropdown button:hover {
+    background-color: #d32f2f; /* Slightly darker red on hover */
+  }
+  

@@ -6,6 +6,8 @@ import giveawaysicon from '../../assets/ScoutBot-Giveaways.png';
 import moreIcon from '../../assets/ScoutBot-More.png';
 import pollLogo from '../../assets/ScoutBot-Polls.png';
 import ScrollReveal from 'scrollreveal';
+import Navigation from '../../components/navigation';
+import Footer from '../../components/footer';
 
 // Rest of your component
 
@@ -18,16 +20,7 @@ const Home = () => {
     return (
 
         <div>
-            <nav className="navbar">
-                <div className="navbar-brand">Scout</div>
-                <ul className="navbar-nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/invite">Invite</a></li>
-                    <li><a href="https://discord.gg/invite/BwD7MgVMuq">Support Server</a></li>
-                </ul>
-                <a href="https://discord.com/api/oauth2/authorize?client_id=1157304018939424970&redirect_uri=https%3A%2F%2Fapi.scoutbot.me%2Fapi%2Fauth%2Fdiscord%2Fredirect&response_type=code&scope=identify%20guilds%20email" class="loginbutton" role="button">Log In</a>
-            </nav>
+            <Navigation></Navigation>
 
             <div className="splashtext">
                 <h2 className='splashtexttop'>Introducing the next Discord Moderation and Utility Bot...</h2>
@@ -82,9 +75,7 @@ const Home = () => {
 
             </div>
 
-            <div class="footer">
-                <p>© ScoutBot 2023 | Created by YourDailyMoose</p>
-            </div>
+            <Footer></Footer>
         </div>
     )
 };

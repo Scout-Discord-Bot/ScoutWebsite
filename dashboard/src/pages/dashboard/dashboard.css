@@ -50,6 +50,121 @@
     /* Underline expands to full width on hover */
   }
 
-  .loggedinuser {
-    
+  .user-profile {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2; /* Change as needed */
+    border: 1px solid black;
+    border-radius: 20px; /* Adjust for desired curvature */
+    padding: 10px;
+    cursor: pointer;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    margin-right: 10px; /* Spacing between image and username */
+}
+
+.username {
+    font-size: 1rem; /* Adjust as needed */
+    color: #333; /* Change as needed */
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {background-color: #f1f1f1}
+
+.show {display: block;}
+
+.guild-selection {
+  text-align: center;
+  color: white;
+}
+.guild-selection h2 {
+  text-align: center;
+  color: black;
+}
+
+
+.guilds-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adjust the space between cards */
+  padding: 20px;
+}
+
+.guild-card {
+  background-color: #2C2F33; /* Discord dark theme color */
+  border-radius: 10px; /* Rounded corners */
+  width: 200px; /* Width of the card */
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  transition: transform 0.2s; /* Smooth scaling transition */
+}
+
+.guild-card:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.guild-logo {
+  width: 100%; /* Full width of the card */
+  border-radius: 10px; /* Match the card's border radius */
+}
+
+.guild-details {
+  padding-top: 10px; /* Space between image and text */
+}
+
+.guild-name {
+  font-size: 1rem; /* Adjust size as needed */
+  font-weight: bold;
+}
+
+.guild-id {
+  font-size: 0.8rem; /* Adjust size as needed */
+  color: #B9BBBE; /* Discord grey text */
+  margin-bottom: 10px; /* Space above the button */
+}
+
+.guild-button {
+  padding: 5px 10px;
+  background-color: #5865F2; /* Discord blurple */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.guild-button:hover {
+  background-color: #4752C4; /* Darker blurple on hover */
+}
+
+/* Add responsive behavior if necessary */
+@media (max-width: 600px) {
+  .guilds-container {
+      flex-direction: column;
   }
+}
+
