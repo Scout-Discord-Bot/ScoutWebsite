@@ -1,0 +1,14 @@
+.App {
+  text-align: left;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: local('Lexend'), url('../public/fonts/Lexend.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Lexend', sans-serif;
+}
