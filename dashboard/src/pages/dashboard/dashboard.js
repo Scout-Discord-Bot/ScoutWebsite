@@ -1,27 +1,23 @@
 import './dashboard.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
     const [userData, setUserData] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
-        if (token) {
-            axios.get('https://api.scoutbot.me/api/user-data', { headers: { Authorization: `Bearer ${token}` } })
-                .then(response => {
-                    console.log('User data response:', response.data);
-                    setUserData(response.data.user);
-                    window.history.pushState({}, document.title, "/dashboard");
-                })
-                .catch(error => {
-                    console.error('Error fetching user data:', error);
-                });
-        }
-    }, []);
+        axios.get('https://api.scoutbot.me/api/user-data', { withCredentials: true })
+            .then(response => {
+                setUserData(response.data.user);
+            })
+            .catch(error => {
+                console.error('Error fetching user data:', error);
+                navigate('/login');
+            });
+    }, [navigate]);
     
-
     if (!userData) {
         return <div>Loading...</div>;
     }
