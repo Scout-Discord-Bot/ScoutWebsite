@@ -9,19 +9,18 @@ const Dashboard = () => {
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
         if (token) {
-            axios.get('/api/user-data', {
-                headers: { Authorization: `Bearer ${token}` }
-            })
-            .then(response => {
-                setUserData(response.data.user);
-                window.history.pushState({}, document.title, "/dashboard");
-            })
-            .catch(error => {
-                console.error('Error fetching user data:', error);
-                // Handle error
-            });
+            axios.get('/api/user-data', { headers: { Authorization: `Bearer ${token}` } })
+                .then(response => {
+                    console.log('User data response:', response.data);
+                    setUserData(response.data.user);
+                    window.history.pushState({}, document.title, "/dashboard");
+                })
+                .catch(error => {
+                    console.error('Error fetching user data:', error);
+                });
         }
     }, []);
+    
 
     if (!userData) {
         return <div>Loading...</div>;
