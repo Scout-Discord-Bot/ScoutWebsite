@@ -5,7 +5,7 @@ const Footer = () => (
 
 
     <div class="footer">
-        <p>© ScoutBot 2023 | Created by YourDailyMoose</p>
+        <p>© Scout 2023-2024 | Created by YourDailyMoose</p>
     </div>
 
 
