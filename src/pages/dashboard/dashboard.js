@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +11,7 @@ import Footer from '../../components/footer';
 const Dashboard = () => {
   const [userGuilds, setUserGuilds] = useState([]);
   const [botGuilds, setBotGuilds] = useState([]);
-  const [userData, setUserData] = useState(null);
+  const [setUserData] = useState(null); //userData
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -17,6 +20,9 @@ const Dashboard = () => {
         navigate('/login');
         return;
       }
+
+    
+      
     
       axios.get('https://api.scoutbot.me/api/user-data', { withCredentials: true })
       .then(response => {
@@ -56,6 +62,8 @@ const Dashboard = () => {
     const toggleDropdown = () => {
       setDropdownOpen(!dropdownOpen);
     };
+    console.log(toggleDropdown)
+
   
     return (
       <div>
