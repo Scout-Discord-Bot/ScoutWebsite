@@ -5,7 +5,7 @@ const Footer = () => (
 
 
     <div class="footer">
-        <p>© Scout 2023-2024 | Created by YourDailyMoose | Contributors: Limitless_RBX & 1spinnewiel</p>
+        <p>© Scout 2023-2024 | Created by YourDailyMoose | Contributors: Limitless4315 & 1spinnewiel</p>
     </div>
 
 
