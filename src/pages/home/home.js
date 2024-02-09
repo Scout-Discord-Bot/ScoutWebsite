@@ -25,8 +25,8 @@ const Home = () => {
             <div className="splashtext">
                 <h2 className='splashtexttop'>Introducing the next Discord Moderation and Utility Bot...</h2>
                 <h1>Scout</h1>
-                <h2 className='motto'>"Guiding Your Server's Journey with Precision and Care"</h2>
-                <h3 className="comingsoon">Currently in Development! Join our <a href="https://discord.gg/BwD7MgVMuq">Support Server</a> for updates!</h3>
+                <h2 className='motto'>"The Next Step in the Evoltuion of Discord Bots"</h2>
+                <h3 className="comingsoon">Currently in Development! Join our <a href="/support">Discord Server</a> for updates!</h3>
             </div>
             <div class='contentcontainer'>
 
@@ -68,7 +68,7 @@ const Home = () => {
                             <img src={moreIcon} alt="More icon" style={{ marginLeft: '10px', marginRight: '10px', marginTop: '5px', width: '50px', height: '50px' }} />
                             <h1 className="card-title">...and More!</h1>
                         </div>
-                        <p>Scout will have many more features that will be revealed soon! Join our <a href="https://discord.gg/BwD7MgVMuq">Support Server</a> to stay updated!</p>
+                        <p>Scout will have many more features that will be revealed soon! Join our <a href="/support">Support Server</a> to stay updated!</p>
                     </div>
 
                 </div>
