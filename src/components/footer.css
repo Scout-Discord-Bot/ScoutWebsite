@@ -4,11 +4,37 @@
 .footer {
     font-family: 'Lexend', sans-serif;
     background-color: #f2f2f2;
-    padding: 1rem;
+    padding: 1px;
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     text-align: center;
+    flex-direction: column;
 }
+
+.options {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    
+    
+  }
+
+  .options li:not(:last-child)::after {
+    content: "·";
+    margin: 0 10px;
+}
+
+.options a {
+    color: black;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+
+  .options a:hover {
+    color: grey;
+    text-decoration: none;
+  }
