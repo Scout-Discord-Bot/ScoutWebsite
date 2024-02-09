@@ -8,7 +8,7 @@ import pollLogo from '../../assets/ScoutBot-Polls.png';
 import ScrollReveal from 'scrollreveal';
 import Navigation from '../../components/navigation';
 import Footer from '../../components/footer';
-import MailchimpForm from '../../components/mailchimpform';
+
 
 // Rest of your component
 
@@ -30,7 +30,7 @@ const Home = () => {
                 <h2 className='motto'>"The Next Step in the Evoltuion of Discord Bots"</h2>
                 <h3 className="comingsoon">Currently in Development! Join our <a href="/support">Discord Server</a> for updates!</h3>
             </div>
-            <MailchimpForm></MailchimpForm>
+            
             <div class='contentcontainer'>
 
                 <h3 class="learnmore">Scroll to learn more!</h3>
