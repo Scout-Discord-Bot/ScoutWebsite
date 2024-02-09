@@ -1,7 +1,6 @@
 // Header.js
 import React, { useState, useEffect } from 'react';
 import Navigation from './navigation'; // Assuming this is the path to your Navigation component
-import ProfileDropdown from './ProfileDropdown'; // Your profile info dropdown component
 
 const Header = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
