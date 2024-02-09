@@ -7,7 +7,6 @@
     "build": "react-scripts build && cp _redirects build/_redirects",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": [
@@ -31,12 +30,12 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.6.1",
+    "axios": "^1.6.7",
     "jsonwebtoken": "^9.0.2",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.18.0",
+    "react-router-dom": "^6.22.0",
     "react-scripts": "^5.0.1",
     "react-transition-group": "^4.4.5",
     "scrollreveal": "^4.0.9",

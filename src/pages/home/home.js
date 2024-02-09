@@ -8,6 +8,7 @@ import pollLogo from '../../assets/ScoutBot-Polls.png';
 import ScrollReveal from 'scrollreveal';
 import Navigation from '../../components/navigation';
 import Footer from '../../components/footer';
+import AuthButton from '../../components/authButton';
 
 
 // Rest of your component
@@ -23,6 +24,7 @@ const Home = () => {
 
         <div>
             <Navigation></Navigation>
+            <AuthButton></AuthButton>
 
             <div className="splashtext">
                 <h2 className='splashtexttop'>Introducing the next Discord Moderation and Utility Bot...</h2>
