@@ -1,0 +1,66 @@
+/* Style the navbar */
+.navbar {
+  font-family: "Lexend", sans-serif;
+  /* Apply Lexend font to navbar */
+  background-color: #f2f2f2;
+  padding: 1rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style the brand name */
+.navbar-brand {
+  font-size: 2rem;
+}
+
+/* Style the navigation links */
+.navbar-nav {
+  font-family: "Lexend", sans-serif;
+  /* Apply Lexend font to navigation links */
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  list-style-type: none;
+  padding: 0;
+  gap: 1.5rem;
+  /* Adjust the gap between links */
+}
+
+.navbar-nav li {
+  margin: 0 10px;
+}
+
+.navbar-nav a {
+  font-family: "Lexend", sans-serif;
+  /* Apply Lexend font to navigation links */
+  color: black;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  /* Needed to provide a reference for the absolute positioning of ::after */
+}
+
+.navbar-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  /* Adjust the height of the underline as needed */
+  background-color: black;
+  /* Set underline color */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Center the underline */
+  transition: width 0.3s ease-in-out;
+  /* Adjust the duration and easing function as needed */
+}
+
+.navbar-nav a:hover::after {
+  width: 100%;
+  /* Underline expands to full width on hover */
+}

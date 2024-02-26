@@ -1,24 +1,20 @@
-// Navigation.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import ProfileDropdown from './profiledropdown'; // Your profile info dropdown component
+import './navigation.css';
 
-const Navigation = ({ isAuthenticated, userData, onLogout }) => (
+const Navigation = ({ isAuthenticated, userData, onLogout }) => {
 
-    <nav className="navbar">
-        <div className="navbar-brand">Scout</div>
-        <ul className="navbar-nav">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/invite">Invite</Link></li>
-            <li><a href="/support">Support Server</a></li>
-        </ul>
-        {isAuthenticated ? (
-            <ProfileDropdown userData={userData} onLogout={onLogout} />
-        ) : (
-            <a href="/support" className="loginbutton" role="button">Get Updates</a>
-        )}
+  return (
+    <nav class="navbar">
+      <div className="navbar-brand">Scout</div>
+      <ul className={`navbar-nav`}>
+        <li><a href="/">Home</a></li>
+        <li><a href="/support">Support Server</a></li>
+        <li><a href="/docs">Documentation</a></li>
+      </ul>
+        <a href="/support" className="loginbutton" role="button">Discord Server</a>
     </nav>
-);
+  );
+};
 
+//<li><a href="/about">About Us</a></li>
+//<li><a href="/invite">Invite</a></li>
 export default Navigation;
