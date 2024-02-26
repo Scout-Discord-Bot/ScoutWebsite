@@ -8,6 +8,7 @@ import pollLogo from '../../assets/ScoutPolls.png';
 import ScrollReveal from 'scrollreveal';
 import Navigation from '../../components/navigation';
 import Footer from '../../components/footer';
+import splashSGV from '../../assets/headerSVG.svg'; // Import your SVG file
 
 
 
@@ -38,13 +39,16 @@ const Home = () => {
                     <h3 className="comingsoon">Currently in Beta! Join our <a href="/support">Discord Server</a> to Enrol!</h3>
 
 
+
+
+
                 </div>
 
-
+                <img src={splashSGV} style={{ width: "100%" }} alt="SplashTextTransitionSVG" />
             </section>
 
 
-            
+
 
 
             <div class='contentcontainer'>
@@ -57,53 +61,53 @@ const Home = () => {
 
 
                 <div className="description">
-                <h3>Elevate your Discord server experience with our all-in-one Discord bot,
-                    designed to cater to all your server needs with precision and efficiency.
-                    Our bot is a top contender in moderation, action logging, utility functions,
-                    and engaging fun commands, ensuring a vibrant and well-managed community.
-                    <br></br>
-                    <br></br>
-                    <strong>Moderation Made Easy</strong> - Say goodbye to the hassle of manual moderation.
-                    Our bot simplifies the process, offering robust features that answer the
-                    pressing question of how to moderate on Discord effectively. Advanced
-                    auto-moderation capabilities ensure a safe and respectful environment for
-                    all members, making it a prime choice for those seeking reliable moderation solutions.
-                    <br></br>
-                    <br></br>
-                    <strong>Comprehensive Action Logging</strong> - Keep a meticulous record of server activity
-                    with our state-of-the-art action logging feature. Whether you're looking
-                    to track message edits, deletions, or user activities, our bot provides
-                    an exhaustive audit log, positioning itself as the best logging bot in the
-                    Discord community. This transparency aids in effective moderation and fosters
-                    trust among your server members.
-                    <br></br>
-                    <br></br>
-                    <strong>Versatile Utility Functions</strong> - Enhance your server's functionality with many
-                    utility commands at your fingertips. From role management to server analytics,
-                    our bot can handle various administrative tasks, streamlining operations and
-                    improving user experience.
-                    <br></br>
-                    <br></br>
-                    <strong>Engage with Fun Commands</strong> - Inject a dose of entertainment into your server
-                    with our bot's fun commands. Whether through interactive games, trivia, or
-                    custom responses, our bot adds a layer of engagement and camaraderie among
-                    members, making it the best Discord bot for fun and social interaction.
-                    <br></br>
-                    <br></br>
-                    Our commitment to excellence is echoed in the community's feedback, with many
-                    considering our bot a top choice alongside renowned names like MEE6, Dyno and Carl-Bot. Trusted
-                    by users worldwide, our bot is a testament to our dedication to providing a
-                    seamless and enjoyable experience for all Discord users.
-                    <br></br>
-                    <br></br>
-                    Upgrade your Discord server with our bot today and experience unparalleled
-                    moderation, logging, utility, and fun - all in one package. Join the ranks
-                    of satisfied server admins who have transformed their community management
-                    and engagement with our top-rated Discord bot.
-                </h3>
-            </div>
+                    <h3>Elevate your Discord server experience with our all-in-one Discord bot,
+                        designed to cater to all your server needs with precision and efficiency.
+                        Our bot is a top contender in moderation, action logging, utility functions,
+                        and engaging fun commands, ensuring a vibrant and well-managed community.
+                        <br></br>
+                        <br></br>
+                        <strong>Moderation Made Easy</strong> - Say goodbye to the hassle of manual moderation.
+                        Our bot simplifies the process, offering robust features that answer the
+                        pressing question of how to moderate on Discord effectively. Advanced
+                        auto-moderation capabilities ensure a safe and respectful environment for
+                        all members, making it a prime choice for those seeking reliable moderation solutions.
+                        <br></br>
+                        <br></br>
+                        <strong>Comprehensive Action Logging</strong> - Keep a meticulous record of server activity
+                        with our state-of-the-art action logging feature. Whether you're looking
+                        to track message edits, deletions, or user activities, our bot provides
+                        an exhaustive audit log, positioning itself as the best logging bot in the
+                        Discord community. This transparency aids in effective moderation and fosters
+                        trust among your server members.
+                        <br></br>
+                        <br></br>
+                        <strong>Versatile Utility Functions</strong> - Enhance your server's functionality with many
+                        utility commands at your fingertips. From role management to server analytics,
+                        our bot can handle various administrative tasks, streamlining operations and
+                        improving user experience.
+                        <br></br>
+                        <br></br>
+                        <strong>Engage with Fun Commands</strong> - Inject a dose of entertainment into your server
+                        with our bot's fun commands. Whether through interactive games, trivia, or
+                        custom responses, our bot adds a layer of engagement and camaraderie among
+                        members, making it the best Discord bot for fun and social interaction.
+                        <br></br>
+                        <br></br>
+                        Our commitment to excellence is echoed in the community's feedback, with many
+                        considering our bot a top choice alongside renowned names like MEE6, Dyno and Carl-Bot. Trusted
+                        by users worldwide, our bot is a testament to our dedication to providing a
+                        seamless and enjoyable experience for all Discord users.
+                        <br></br>
+                        <br></br>
+                        Upgrade your Discord server with our bot today and experience unparalleled
+                        moderation, logging, utility, and fun - all in one package. Join the ranks
+                        of satisfied server admins who have transformed their community management
+                        and engagement with our top-rated Discord bot.
+                    </h3>
+                </div>
 
-            <div class="arrow"></div>
+                <div class="arrow"></div>
 
                 <h1 class="featurestitle">Planned Features</h1>
                 <div className="card-container">
@@ -136,7 +140,7 @@ const Home = () => {
                         <p>Scout will have a Poll system that will allow users to create and vote on various topics.</p>
                     </div>
                     <div className="card">
-                        <div style={{ display: 'flex', alignItems: 'cente   r', justifyContent: 'start' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'start' }}>
                             <img src={moreIcon} alt="More icon" style={{ marginLeft: '10px', marginRight: '10px', marginTop: '5px', width: '50px', height: '50px' }} />
                             <h1 className="card-title">More Features to Come!</h1>
                         </div>

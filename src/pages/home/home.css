@@ -22,27 +22,6 @@ body {
   background-size: cover;
 }
 
-.custom-shape-divider-bottom-1707772086 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1707772086 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 84px;
-}
-
-.custom-shape-divider-bottom-1707772086 .shape-fill {
-  fill: #FFFFFF;
-}
-
 
 .motto {
   color: #000000;
@@ -65,9 +44,14 @@ body {
   color: #0056b3;
 }
 
+section {
+  position: relative;
+}
+
 .contentcontainer {
-  width: 80%;
-  margin: 0 auto;
+  position: absolute;
+  top: 450px; /* Adjust this value to position the div correctly */
+  width: 100%;
 }
 
 .learnmore {
