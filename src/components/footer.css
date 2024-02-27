@@ -1,40 +1,60 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+@font-face {
+  font-family: "Lexend";
+  src: url("../fonts/Lexend.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 .footer {
-    font-family: 'Lexend', sans-serif;
-    background-color: #f2f2f2;
-    padding: 1px;
-    color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    text-align: center;
-    flex-direction: column;
+  font-family: "Lexend", sans-serif;
+  background-color: #f2f2f2;
+  padding: 1px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+  flex-direction: column;
 }
 
 .options {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    
-    
-  }
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  flex-direction: row;
+}
 
-  .options li:not(:last-child)::after {
-    content: "·";
-    margin: 0 10px;
+.options li:not(:last-child)::after {
+  content: "·";
+  margin: 0 10px;
 }
 
 .options a {
-    color: black;
-    transition: color 0.3s ease;
-    text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.options a:hover {
+  color: grey;
+  text-decoration: none;
+}
+
+/* Adjustments for screens smaller than 600px */
+@media (max-width: 600px) {
+  .options {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .options a:hover {
-    color: grey;
-    text-decoration: none;
+  .options li {
+    margin: 10px; /* Adjust as needed */
   }
+
+  .options li:not(:last-child)::after {
+    content: "";
+    margin: 0;
+  }
+}

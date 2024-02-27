@@ -5,10 +5,7 @@
   font-style: normal;
 }
 
-body {
-  background-color: #ffffff;
 
-}
 
 .layer1 {
   background-image: "/src/assets/splash-wave.svg";
@@ -44,14 +41,9 @@ body {
   color: #0056b3;
 }
 
-section {
-  position: relative;
-}
-
 .contentcontainer {
-  position: absolute;
-  top: 450px; /* Adjust this value to position the div correctly */
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .learnmore {
@@ -67,6 +59,16 @@ section {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid #5bbd88;
+  margin: 15px auto;
+  animation: arrow-animation 4s infinite;
+}
+
+.arrowWhite {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ffffff;
   margin: 15px auto;
   animation: arrow-animation 4s infinite;
 }
@@ -92,47 +94,14 @@ section {
   padding-top: 50px;
 }
 
-.card-container {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.card {
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.2);
-  margin: 1%;
-  max-width: calc(33% - 20px);
-  width: 30%;
-  margin-bottom: 20px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.3);
-  transform: scale(1.05);
-}
-
-.card-title {
-  font-size: 1.5em;
-  font-weight: normal;
-}
 
 @media (max-width: 600px) {
-  .card {
-    width: 100%;
-    margin: 0 0 20px 0;
+  .featurestitle {
+    font-size: 40px; /* Adjust as needed */
+    padding-top: 25px; /* Adjust as needed */
   }
 }
 
-@media (min-width: 900px) {
-  .card {
-    width: 30%;
-  }
-}
 
 body {
   overflow-x: hidden;
@@ -145,7 +114,7 @@ body {
   border: 2px solid #69DC9E;
   border-radius: 8px;
   cursor: pointer;
-  text-decoration: none !important;
+  text-decoration: none !important; 
   font-size: 16px;
   transition: background-color 0.3s, border-color 0.3s;
 }
@@ -192,16 +161,88 @@ body {
 
 }
 
-.description {
+.features {
   margin-left: 10%;
   margin-right: 10%;
   padding-top: 20px;
+  border-radius: 20px; /* Adjust as needed */
+}
 
+.contentcontainer {
+  background-color: #2f3136;
+  width: 80%;
+  color: #ffffff;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 20px;
+  border-radius: 20px; /* Adjust as needed */
+  padding-bottom: 40px;
+}
+
+.features h3 {
+  font-weight: normal;
+  padding-bottom: 20px;
   
 }
 
-.description h3 {
-  font-weight: normal;
-  padding-bottom: 20px;
+.featureDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
 
+.logging {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+
+.featureImage {
+  border-radius: 20px; /* Adjust as needed */
+  margin-right: 20px; /* Adjust as needed */
+  width: 50%; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+}
+
+.featureImage:hover {
+  transform: scale(1.05); /* Make the image a bit larger */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 1); /* Add a glow effect */
+}
+.text-content {
+  flex: 1;
+}
+
+.text-content h2, .text-content p {
+  margin: 0;
+}
+
+.description {
+  padding-bottom: 20px;
+  padding: 20px;
+  width: auto;
+}
+
+.description h1 {
+  font-size: 2em;
+  
+  text-align: center;
+}
+
+.description p {
+  font-size: 1.5em;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.text-content h2 {
+  font-size: 1.5em;
+  padding-bottom: 20px;
+}
+
+.title {
+  font-size: 3em;
+  padding-bottom: 20px;
+  text-align: center;
 }

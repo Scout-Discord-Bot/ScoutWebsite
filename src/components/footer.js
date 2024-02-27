@@ -17,7 +17,7 @@ const Footer = () => (
 
 
 
-        <p>© Scout 2023-2024 | Created by YourDailyMoose | Contributors: Limitless4315 & 1spinnewiel</p>
+        <p>© Scout 2023-2024<br></br>Created by YourDailyMoose<br></br>Contributors: Limitless4315 & 1spinnewiel</p>
     </div>
 
 
