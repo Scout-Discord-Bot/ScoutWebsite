@@ -1,16 +1,24 @@
 import './navigation.css';
+import './navigationjs.js';
 
-const Navigation = ({ isAuthenticated, userData, onLogout }) => {
 
+
+
+function Navigation() {
+
+  
   return (
-    <nav class="navbar">
+    <nav className="navbar">
       <div className="navbar-brand">Scout</div>
+      <div className="navbar-toggle">
+        <span>&#9776;</span>
+      </div>
       <ul className={`navbar-nav`}>
         <li><a href="/">Home</a></li>
         <li><a href="/support">Support Server</a></li>
         <li><a href="/docs">Documentation</a></li>
       </ul>
-        <a href="/support" className="loginbutton" role="button">Discord Server</a>
+      <a href="/support" className="loginbutton" role="button">Discord Server</a>
     </nav>
   );
 };

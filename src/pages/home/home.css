@@ -214,6 +214,19 @@ body {
   flex: 1;
 }
 
+@media (max-width: 600px) {
+  .featureDiv {
+    flex-direction: column;
+  }
+
+  .featureImage {
+    margin-right: 0; /* Remove the right margin */
+    margin-bottom: 20px; /* Add a bottom margin */
+    width: 100%; /* Make the image take up the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Resize the image to cover the container while maintaining its aspect ratio */
+  }
+}
 .text-content h2, .text-content p {
   margin: 0;
 }
