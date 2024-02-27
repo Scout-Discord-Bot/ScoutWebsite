@@ -1,13 +1,19 @@
 import './navigation.css';
-import './navigationjs.js';
-
-
-
+//import './navigationjs.js';
+import React, { useEffect } from 'react';
 
 function Navigation() {
+  useEffect(() => {
+    const toggle = document.querySelector('.navbar-toggle');
+    const nav = document.querySelector('.navbar-nav');
 
-  
-  return (
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        nav.classList.toggle('open');
+      });
+    }
+  }, []);
+  return(
     <nav className="navbar">
       <div className="navbar-brand">Scout</div>
       <div className="navbar-toggle">
