@@ -6,7 +6,7 @@ function Navigation() {
   useEffect(() => {
     const toggle = document.querySelector('.navbar-toggle');
     const nav = document.querySelector('.navbar-nav');
-
+  
     if (toggle && nav) {
       toggle.addEventListener('click', function() {
         nav.classList.toggle('open');
@@ -21,10 +21,10 @@ function Navigation() {
       </div>
       <ul className={`navbar-nav`}>
         <li><a href="/">Home</a></li>
-        <li><a href="/support">Support Server</a></li>
+        <li><a href="/support">Support</a></li>
         <li><a href="/docs">Documentation</a></li>
       </ul>
-      <a href="/support" className="loginbutton" role="button">Discord Server</a>
+      <a href="https://discord.gg/BwD7MgVMuq" className="loginbutton" role="button">Discord Server</a>
     </nav>
   );
 };

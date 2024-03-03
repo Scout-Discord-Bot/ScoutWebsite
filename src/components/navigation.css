@@ -80,9 +80,16 @@
     top: 60px;
     left: 0;
     padding-bottom: 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
   }
 
   .navbar-toggle {
     display: block;
+  }
+
+  .navbar-nav.open {
+    max-height: 200px; /* Adjust as needed */
   }
 }
