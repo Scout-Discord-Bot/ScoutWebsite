@@ -14,8 +14,9 @@ import fun from '../../assets/fun.svg';
 const Home = () => {
 
     useEffect(() => {
-        ScrollReveal().reveal('.card', { delay: 200 });
-    }, []);
+        ScrollReveal().reveal('.description', { delay: 200 });
+        ScrollReveal().reveal('.features', { delay: 400 });
+      }, []);
 
     return (
 
@@ -43,16 +44,6 @@ const Home = () => {
             </section>
 
 
-
-
-            <div className='description'>
-                <h1 className="">Hey! I'm Scout</h1>
-                <p>Elevate your Discord server experience with our all-in-one Discord bot,
-                    designed to cater to all your server needs with precision and efficiency.
-                    Our bot is a top contender in moderation, action logging, utility functions,
-                    and engaging fun commands, ensuring a vibrant and well-managed community.
-                </p>
-            </div>
 
             <div class='contentcontainer'>
 
