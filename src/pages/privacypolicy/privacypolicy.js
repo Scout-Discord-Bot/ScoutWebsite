@@ -87,7 +87,7 @@ const PrivacyPolicy = () => {
 
                     <section>
                         <h2>Contact Information</h2>
-                        <p>If you have any questions or concerns about your privacy or wish to exercise your rights regarding your data, please email us at <a href="mailto:support@scoutbot.me">support@scoutbot.me</a> with your Discord User ID.</p>
+                        <p>If you have any questions or concerns about your privacy or wish to exercise your rights regarding your data, please email us at <a href="mailto:support@scoutbot.xyz">support@scoutbot.xyz</a> with your Discord User ID.</p>
                     </section>
 
                     <section>
