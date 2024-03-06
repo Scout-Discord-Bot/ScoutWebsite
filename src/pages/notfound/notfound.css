@@ -3,35 +3,29 @@
   src: url(../../fonts/Lexend.ttf) format("truetype");
 }
 
-#support .content {
+#notfound .content {
   font-family: "Lexend", sans-serif;
   font-size: 20pxrem;
   padding: 1rem;
   margin: 1rem;
-  text-align: center;
 }
 
-#support header {
+#notfound header {
   text-align: center;
   padding: 15px;
   background-color: #69dc9e;
   color: white;
 }
 
-#support header h1 {
+#notfound header h1 {
   font-size: 50px;
 }
 
-#support header h2 {
+#notfound header h2 {
   font-size: 30px;
 }
 
-#support p {
+#notfound p {
   text-align: center;
   font-size: 20px;
-}
-
-.prefcontact {
-  text-align: center;
-  font-size: 15px !important;
 }

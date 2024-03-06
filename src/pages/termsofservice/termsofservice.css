@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "Lexend";
+    src: url(../../fonts/Lexend.ttf) format("truetype");
+  }
+  
+  #legal .content {
+    font-family: "Lexend", sans-serif;
+    font-size: 20pxrem;
+    padding: 1rem;
+    margin: 1rem;
+  }
+  
+  #legal header {
+    text-align: center;
+    padding: 15px;
+    background-color: #69dc9e;
+    color: white;
+  }
+  
+  #legal header h1 {
+      font-size: 50px;
+  }
+  
+  #legal header h2 {
+      font-size: 30px;
+  }
+  
+  #legal img {
+      width: 30%;
+      height: auto;
+      margin: 1rem;
+      float: right;
+  }

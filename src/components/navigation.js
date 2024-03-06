@@ -23,6 +23,7 @@ function Navigation() {
         <li><a href="/">Home</a></li>
         <li><a href="/support">Support</a></li>
         <li><a href="https://docs.scoutbot.xyz">Docs</a></li>
+        <li><a href="/ourteam">Our Team</a></li>
       </ul>
       <a href="https://discord.gg/BwD7MgVMuq" className="loginbutton" role="button">Discord Server</a>
     </nav>

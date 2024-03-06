@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Lexend";
+  src: url(../../fonts/Lexend.ttf) format("truetype");
+}
+
+#team .content {
+  font-family: "Lexend", sans-serif;
+  font-size: 20pxrem;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+#team header {
+  text-align: center;
+  padding: 15px;
+  background-color: #69dc9e;
+  color: white;
+}
+
+#team header h1 {
+  font-size: 50px;
+}
+
+#team header h2 {
+  font-size: 30px;
+}
+
+#team p {
+  text-align: center;
+  font-size: 20px;
+}
+
+.member-card {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15); /* Add shadow */
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease; /* Add transition for transform */
+  /* Add more styles as needed */
+}
+
+.member-card:hover {
+  background-color: #f4f4f4;
+  transform: scale(1.05); /* Grow a little bit */
+}
+
+.member-card .content {
+  text-align: center;
+}
+
+.content h2 {
+  font-weight: normal;
+  font-size: 30px;
+}
+
+.member-card img {
+  width: 80%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.cardContainer {
+  text-align: center;
+}
