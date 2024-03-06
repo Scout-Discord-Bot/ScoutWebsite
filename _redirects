@@ -1,4 +1,2 @@
 /login https://discord.com/api/oauth2/authorize?client_id=1157304018939424970&response_type=code&redirect_uri=https%3A%2F%2Fapi.scoutbot.me%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=identify+guilds+email
-/legal/privacy-policy /legal/privacy-policy.pdf
-/legal/terms-of-service /legal/terms-of-service.pdf
 /emailsubscription https://mailchi.mp/06dcd5115cb7/scout-email-subscription-01
