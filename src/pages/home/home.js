@@ -8,6 +8,7 @@ import moderation from '../../assets/moderation.svg';
 import logging from '../../assets/logging.svg';
 import utility from '../../assets/utility.svg';
 import fun from '../../assets/fun.svg';
+
 //import startFeatures from '../../assets/startFeatures.svg';
 
 
@@ -31,7 +32,7 @@ const Home = () => {
 
                     <h2 className='splashtexttop'>Introducing the next Discord Moderation and Utility Bot...</h2>
                     <h1>Scout</h1>
-                    <h2 className='motto'>"The Next Step in the Evoltuion of Discord Bots"</h2>
+                    <h2 className='motto'>"The Next Step in the Evolution of Discord Bots"</h2>
                     <h3 className="comingsoon">Currently in Beta! Join our <a href="/support">Discord Server</a> to Enrol!</h3>
 
                     <div class="arrowWhite"></div>

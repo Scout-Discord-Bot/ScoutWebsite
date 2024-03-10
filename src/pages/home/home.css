@@ -21,7 +21,7 @@
 
 
 .motto {
-  color: #000000;
+  color: #ffffff;
   font-size: 30px;
   font-style: italic;
   margin-bottom: 30px;
@@ -126,13 +126,16 @@ body {
 
 .splashtext,
 .splashtext h1,
-.splashtexttop,
 .motto,
 .loginbutton,
 .card-title,
 .card-text {
   font-family: 'Lexend', sans-serif;
   /* Apply Lexend font to other elements */
+}
+
+.splashtexttop {
+  color: #ffffff;
 }
 
 .splashtext h1 {
