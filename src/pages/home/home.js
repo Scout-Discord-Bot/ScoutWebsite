@@ -35,7 +35,7 @@ const Home = () => {
                     <h2 className='motto'>"The Next Step in the Evolution of Discord Bots"</h2>
                     <h3 className="comingsoon">Currently in Beta! Join our <a href="/support">Discord Server</a> to Enrol!</h3>
 
-                    <div class="arrowWhite"></div>
+                    <div className="arrowWhite"></div>
 
 
 
@@ -44,9 +44,11 @@ const Home = () => {
                 <img src={splashSGV} style={{ width: "100%" }} alt="SplashTextTransitionSVG" />
             </section>
 
+          
 
 
-            <div class='contentcontainer'>
+
+            <div className='contentcontainer'>
 
 
                 <section className='featureSection'>
@@ -61,7 +63,7 @@ const Home = () => {
                             <div className="text-content">
                                 <h2>Moderation on Another Level</h2>
                                 <p>
-                                    Wave goodbye to the cumbersome tasks of manual moderation. Introducing Scout – your ultimate solution to streamline the moderation process on Discord. Designed with precision and user-friendliness in mind, Scout empowers you to effortlessly oversee user activity, enforve server rules, and foster a secure, inviting atmosphere for every member.
+                                    Wave goodbye to the cumbersome tasks of manual moderation. Introducing Scout – your ultimate solution to streamline the moderation process on Discord. Designed with precision and user-friendliness in mind, Scout empowers you to effortlessly oversee user activity, enforce server rules, and foster a secure, inviting atmosphere for every member.
 
                                     Scout stands out for our moderation, delivering an unparalleled blend of efficiency and effectiveness in server management. Embrace the future of moderation with Scout, where simplicity meets sophistication.
                                 </p>
