@@ -49,7 +49,7 @@ function Navigation() {
         const state = params.get('state');
   
         console.log('State value:', state);
-        Cookies.set('oauth2state', state, { secure: true, sameSite: 'None' });
+        Cookies.set('oauth2state', state, { secure: true, sameSite: 'Lax' });
         setAuthUrl(response.data.authUrl);
       })
       .catch(error => {
