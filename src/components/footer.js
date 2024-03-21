@@ -4,10 +4,10 @@ import './footer.css';
 const Footer = () => (
 
 
-    <div class="footer">
+    <div className="footer">
 
 
-        <ul class="options">
+        <ul className="options">
             <li><a href="/legal/privacy-policy">Privacy Policy</a></li>
             <li><a href="/legal/terms-of-service">Terms of Service</a></li>
             <li><a href="/support">Support</a></li>

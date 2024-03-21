@@ -1,0 +1,54 @@
+.notification.error {
+  background-color: #f6786a;
+  color: white;
+}
+
+.notification.warning {
+  background-color: #f8c57c;
+  color: white;
+}
+
+.notification.success {
+  background-color: #69dc9e;
+  color: white;
+}
+
+.notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 1000;
+    height: 50px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.notification .icon {
+  height: 100%;
+  object-fit: contain;
+}
+
+.notification .notifText {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.notification .close-button {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.notification-container {
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    align-items: flex-end;
+}

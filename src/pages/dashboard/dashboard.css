@@ -1,0 +1,94 @@
+body {
+  font-family: Lexend, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.server-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animate the transform and box-shadow properties */
+}
+
+.server-icon {
+  flex-shrink: 0;
+  width: 100px; /* Increase the width */
+  height: 100px; /* Increase the height */
+  border-radius: 50%;
+}
+
+.server-info {
+  flex-grow: 1;
+}
+
+.server-info h3 {
+  margin-bottom: 0;
+}
+
+.server-info p {
+  margin-top: 0;
+}
+
+.serverButton {
+  padding: 10px 20px;
+  position: relative;
+  border-radius: 5px;
+  background-color: #69dc9e;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 100%;
+  border: none;
+  font-weight: 550;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add this line */
+}
+
+.serverButton:hover{
+  background-color: #5ec48e;
+}
+
+.server-card button a {
+  display: block; /* Add this line */
+  width: 100%; /* Add this line */
+  height: 100%; /* Add this line */
+  color: #fff;
+  text-decoration: none;
+}
+
+.server-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.server-card:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  transform: scale(
+    1.05
+  ); /* Scale the server card to 105% of its original size */
+}
+
+#dash header {
+  text-align: center;
+  padding: 15px;
+  background-color: #69dc9e;
+  color: white;
+  margin-bottom: 15px;
+}
+
+#dash header h1 {
+  font-size: 50px;
+}
+
+#dash header h2 {
+  font-size: 30px;
+}

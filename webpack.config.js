@@ -20,6 +20,10 @@ module.exports = {
         },
       },
       {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+        type: 'asset/resource',
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'], // Style and CSS loaders for handling styles
       },
@@ -30,9 +34,15 @@ module.exports = {
           name: '[name].[ext]',
         },
       },
+      
     ],
   },
   resolve: {
     extensions: ['.js', '.jsx'], // File extensions to resolve
+    fallback: {
+      "path": require.resolve('path-browserify'), // Correct fallback for 'path'
+      "crypto": require.resolve('crypto-browserify'), // Assuming you might also need this
+      // Add any other necessary fallbacks here
+    },
   },
 };

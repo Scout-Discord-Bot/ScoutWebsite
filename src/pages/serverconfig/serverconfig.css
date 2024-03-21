@@ -1,0 +1,389 @@
+.dashboard-home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-row-gap: 50px; /* This adds a vertical gap */
+  grid-column-gap: 20px; /* This adds a horizontal gap */
+}
+
+.dashboard-home-card {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.dashboard-home-card:hover {
+  background-color: #e0e0e0;
+}
+
+.dashboard-home-card .switch {
+  margin-top: auto;
+  margin-bottom: 20px; /* Add space between switch and button */
+}
+
+.dashboard-home-card .button {
+  margin-top: 0;
+}
+
+.switch-welcomeMessages {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-welcomeMessages input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-welcomeMessages .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 1s;
+}
+
+.switch-welcomeMessages .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 1s;
+}
+
+.switch-welcomeMessages > input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch-welcomeMessages > input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.switch-leaveMessages {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-leaveMessages input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-leaveMessages .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 1s;
+}
+
+.switch-leaveMessages .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 1s;
+}
+
+.switch-leaveMessages > input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch-leaveMessages > input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.switch-moderation {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-moderation input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-moderation .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 1s;
+}
+
+.switch-moderation .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 1s;
+}
+
+.switch-moderation > input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch-moderation > input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.switch-fun {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-fun input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-fun .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 1s;
+}
+
+.switch-fun .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 1s;
+}
+
+.switch-fun > input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch-fun > input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.switch-utility {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-utility input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-utility .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 1s;
+}
+
+.switch-utility .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 1s;
+}
+
+.switch-utility > input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch-utility > input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.switch-levels {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-levels input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-levels .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 1s;
+}
+
+.switch-levels .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 1s;
+}
+
+.switch-levels > input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch-levels > input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.switch-logging {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-logging input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-logging .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: background-color 1s;
+}
+
+.switch-logging .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 1s;
+}
+
+.switch-logging > input:checked + .slider {
+  background-color: #2196f3;
+}
+
+.switch-logging > input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #69dc9e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: Lexend, sans-serif;
+  
+}
+
+.button:hover {
+  background-color: #187bcd;
+}
+
+
+#config .content {
+  font-family: "Lexend", sans-serif;
+  font-size: 20pxrem;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#config header {
+  text-align: center;
+  padding: 15px;
+  background-color: #69dc9e;
+  color: white;
+}
+
+#config header h1 {
+    font-size: 50px;
+}
+
+#config header h2 {
+    font-size: 30px;
+}
