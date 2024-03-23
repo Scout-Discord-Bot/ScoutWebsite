@@ -50,7 +50,7 @@ const RoutesComponent = () => {
   
         if (response.status === 200) {
           const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
-          
+          console.log('Guild ID:', guildId);
           // Fetch user access level for a specific guild. This request also relies on session cookies.
           const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
             withCredentials: true,
