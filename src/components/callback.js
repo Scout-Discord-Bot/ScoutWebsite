@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 
 const Callback = () => {
   const navigate = useNavigate();
@@ -22,8 +22,8 @@ const Callback = () => {
         withCredentials: true
       })
         .then(response => {
-          Cookies.set('dataKey', response.data.dataKey, { secure: true, sameSite: 'lax', path: '/' });
-          Cookies.set('token', response.data.token, { secure: true, sameSite: 'lax', path: '/' });
+          //Cookies.set('dataKey', response.data.dataKey, { secure: true, sameSite: 'lax', path: '/' });
+          //Cookies.set('token', response.data.token, { secure: true, sameSite: 'lax', path: '/' });
           navigate('/dashboard');
           console.log(response);
         })

@@ -29,7 +29,6 @@ function Navigation() {
         if (response.status === 401) {
           // The token has expired or is invalid
           // Redirect the user to the login page, or show a message asking them to log in again
-          Cookies.remove('token'); // Remove the expired/invalid token
           window.location.href = '/login'; // Redirect to login page
         } else {
           setUserData(response.data);
@@ -50,7 +49,6 @@ function Navigation() {
         const state = params.get('state');
   
         console.log('State value:', state);
-        Cookies.set('oauth2state', state, { domain: '.scoutbot.xyz' });
         setAuthUrl(response.data.authUrl);
       })
       .catch(error => {
