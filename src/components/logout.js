@@ -10,8 +10,9 @@ const Logout = () => {
         const handleLogout = () => {
             axios.post(
                 "https://api.scoutbot.xyz/oauth/logout", 
-                { withCredentials: true}
-            )
+                {}, // Data object, which is empty in this case
+                { withCredentials: true } // Axios config options
+              )
             .then(() => {
                 navigate("/");
             })
