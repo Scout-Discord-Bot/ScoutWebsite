@@ -21,7 +21,6 @@ function ServerConfig() {
     };
 
     useEffect(() => {
-        if (dataKey) {
             axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true })
                 .then(response => {
                     const guilds = response.data.guilds;
@@ -36,7 +35,6 @@ function ServerConfig() {
                 .catch(error => {
                     console.error('There was an error retrieving the data!', error);
                 });
-        }
     }, [guildId]);
 
 
