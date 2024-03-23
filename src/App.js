@@ -46,22 +46,26 @@ const RoutesComponent = () => {
         const response = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
         console.log('User data response:', response);
         setIsLoggedIn(response.status === 200);
-
+  
         if (response.status === 200) {
           const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
           console.log('Guild ID:', guildId);
           const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, { withCredentials: true, params: { guildId: guildId } });
           console.log('User access response:', accessResponse.data);
-          setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
+  
+          if (accessResponse.data.role) {
+            setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
+          } else {
+            console.error('Role not found in user access response');
+          }
         } else {
           navigate("/");
         }
       }
     }
-
+  
     checkAuthentication();
   }, [location, navigate]);
-
   
   
   console.log('User access:', userAccess);
