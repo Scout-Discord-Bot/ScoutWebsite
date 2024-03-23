@@ -23,7 +23,6 @@ const Callback = () => {
       })
         .then(response => {
           navigate('/dashboard');
-          console.log(response);
         })
         .catch(error => {
           if (error.response && error.response.status === 400) {
