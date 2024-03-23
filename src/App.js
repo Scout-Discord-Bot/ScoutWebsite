@@ -42,31 +42,27 @@ const RoutesComponent = () => {
 
   useEffect(() => {
     const checkAuthentication = async () => {
-      if (location.pathname.startsWith('/dashboard')) {
-        // Fetch user data from your backend. This request relies on session cookies.
-        const response = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
-  
-        setIsLoggedIn(response.status === 200);
-  
-        if (response.status === 200) {
-          const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
-          console.log('Guild ID:', guildId);
-          // Fetch user access level for a specific guild. This request also relies on session cookies.
-          const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
-            withCredentials: true,
-            params: { guildId: guildId }
-          });
-  
-          setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
-        } else {
-          navigate("/");
-        }
+      // Fetch user data from your backend. This request relies on session cookies.
+      const response = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
+      setIsLoggedIn(response.status === 200);
+
+      if (response.status === 200 && location.pathname.startsWith('/dashboard/')) {
+        const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
+        console.log('Guild ID:', guildId);
+        // Fetch user access level for a specific guild. This request also relies on session cookies.
+        const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
+          withCredentials: true,
+          params: { guildId: guildId }
+        });
+
+        setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
+      } else if (response.status !== 200) {
+        navigate("/");
       }
     };
-  
+
     checkAuthentication();
   }, [location, navigate]);
-  
 
 
 

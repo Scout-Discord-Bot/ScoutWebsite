@@ -4,7 +4,7 @@ import axios from 'axios';
 import Navigation from '../../components/navigation';
 import './serverconfig.css';
 import Notification from '../../components/notification';
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 
 function ServerConfig() {
     const { guildId } = useParams();
@@ -21,10 +21,8 @@ function ServerConfig() {
     };
 
     useEffect(() => {
-        const dataKey = Cookies.get('dataKey'); // Get dataKey from cookies
-
         if (dataKey) {
-            axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true, params: { dataKey: dataKey } })
+            axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true })
                 .then(response => {
                     const guilds = response.data.guilds;
                     const guild = guilds.find(g => g.id === guildId); // Find the guild with the matching guildId
