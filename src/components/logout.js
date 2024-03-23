@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 import axios from "axios";
 
 const Logout = () => {
@@ -13,8 +13,6 @@ const Logout = () => {
                 { withCredentials: true}
             )
             .then(() => {
-                Cookies.remove("token");
-                Cookies.remove("dataKey");
                 navigate("/");
             })
             .catch((error) => {

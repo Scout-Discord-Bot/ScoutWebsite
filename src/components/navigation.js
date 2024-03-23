@@ -70,7 +70,7 @@ function Navigation() {
           <div className="dropdown-content">
             <a href="/dashboard">Dashboard</a>
             <a href="/account">Account Settings</a>
-            <a href="/signout">Sign Out</a>
+            <a href="/logout">Sign Out</a>
           </div>
         </div>
       ) : (
