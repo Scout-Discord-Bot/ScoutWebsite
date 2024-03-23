@@ -40,9 +40,6 @@ function Navigation() {
   useEffect(() => {
     axios.get('https://api.scoutbot.xyz/oauth/authorize', { withCredentials: true })
       .then(response => {
-        const url = new URL(response.data.authUrl);
-        const params = new URLSearchParams(url.search);
-        const state = params.get('state');
   
         setAuthUrl(response.data.authUrl);
       })

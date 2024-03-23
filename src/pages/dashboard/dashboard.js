@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './dashboard.css';
 import axios from 'axios';
 import Navigation from '../../components/navigation';
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 
 const Dashboard = (props) => {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        const dataKey = Cookies.get('dataKey');
 
         axios.get('https://api.scoutbot.xyz/userdata', {
             withCredentials: true,
