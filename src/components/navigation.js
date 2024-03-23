@@ -19,24 +19,24 @@ function Navigation() {
       });
     }
 
-    const dataKey = Cookies.get('dataKey');
+  
     if (dataKey) {
       axios.get(`https://api.scoutbot.xyz/userdata`, {
-        params: { dataKey: dataKey }
-  
+      withCredentials: true
       }).then(response => {
-        if (response.status === 404) {
-          // The token has expired or is invalid
-          // Redirect the user to the login page, or show a message asking them to log in again
-          window.location.href = '/login'; // Redirect to login page
-        } else {
-          setUserData(response.data);
-        }
+      if (response.status === 404) {
+        // The token has expired or is invalid
+        // Redirect the user to the login page, or show a message asking them to log in again
+        window.location.href = '/login'; // Redirect to login page
+      } else {
+        setUserData(response.data);
+      }
       })
-        .catch(error => {
-          console.error('Error fetching user data', error);
-        });
+      .catch(error => {
+        console.error('Error fetching user data', error);
+      });
     }
+  
   }, []);
 
 
