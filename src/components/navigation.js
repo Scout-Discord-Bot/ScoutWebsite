@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Cookies from 'js-cookie';
+//import Cookies from 'js-cookie';
 import './navigation.css';
 
 function Navigation() {
@@ -19,8 +19,6 @@ function Navigation() {
       });
     }
 
-  
-    if (dataKey) {
       axios.get(`https://api.scoutbot.xyz/userdata`, {
       withCredentials: true
       }).then(response => {
@@ -35,7 +33,6 @@ function Navigation() {
       .catch(error => {
         console.error('Error fetching user data', error);
       });
-    }
   
   }, []);
 
