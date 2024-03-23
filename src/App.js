@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 //import Cookies from 'js-cookie';
 import Home from './pages/home/home';
 import Support from './pages/support/support';
@@ -44,12 +44,13 @@ const RoutesComponent = () => {
     const checkAuthentication = async () => {
       if (location.pathname.startsWith('/dashboard')) {
         const response = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
-
+        console.log('User data response:', response);
         setIsLoggedIn(response.status === 200);
 
         if (response.status === 200) {
           const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
           const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, { withCredentials: true, params: { guildId: guildId } });
+          console.log('User access response:', accessResponse);
           setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
         } else {
           navigate("/");
@@ -61,9 +62,13 @@ const RoutesComponent = () => {
   }, [location, navigate]);
 
   
+  
+  console.log('User access:', userAccess);
+  
+
 
   const userHasAccess = userAccess === 'Owner' || userAccess === 'Admin';
-
+  console.log('User has access:', userHasAccess);
   return (
     <Routes>
       <Route path="/" element={<Home />} />
