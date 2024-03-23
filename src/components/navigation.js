@@ -22,11 +22,10 @@ function Navigation() {
     const dataKey = Cookies.get('dataKey');
     if (dataKey) {
       axios.get(`https://api.scoutbot.xyz/userdata`, {
-        headers: { Authorization: `Bearer ${Cookies.get('token')}` },
         params: { dataKey: dataKey }
   
       }).then(response => {
-        if (response.status === 401) {
+        if (response.status === 404) {
           // The token has expired or is invalid
           // Redirect the user to the login page, or show a message asking them to log in again
           window.location.href = '/login'; // Redirect to login page
@@ -48,7 +47,6 @@ function Navigation() {
         const params = new URLSearchParams(url.search);
         const state = params.get('state');
   
-        console.log('State value:', state);
         setAuthUrl(response.data.authUrl);
       })
       .catch(error => {
@@ -56,7 +54,6 @@ function Navigation() {
       });
   }, []); // Empty dependency array to run the hook only once
 
-  console.log(authUrl);
 
   return (
     <nav className="navbar">

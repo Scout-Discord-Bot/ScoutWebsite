@@ -24,7 +24,7 @@ function ServerConfig() {
         const dataKey = Cookies.get('dataKey'); // Get dataKey from cookies
 
         if (dataKey) {
-            axios.get(`https://api.scoutbot.xyz/userdata`, { headers: { Authorization: `Bearer ${Cookies.get('token')}` }, params: { dataKey: dataKey } })
+            axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true, params: { dataKey: dataKey } })
                 .then(response => {
                     const guilds = response.data.guilds;
                     const guild = guilds.find(g => g.id === guildId); // Find the guild with the matching guildId
@@ -43,21 +43,21 @@ function ServerConfig() {
 
 
     useEffect(() => {
-        axios.get('https://api.scoutbot.xyz/guildsettings', { headers: { Authorization: `Bearer ${Cookies.get('token')}` }, params: { guildId: guildId } })
+        axios.get('https://api.scoutbot.xyz/guildsettings', { withCredentials: true, params: { guildId: guildId } })
             .then(response => {
-                const modules = response.data.modules;
-                setToggleState({
-                    welcomeMessages: modules.welcomeMessages?.enabled,
-                    leaveMessages: modules.leaveMessages?.enabled,
-                    moderation: modules.moderation,
-                    fun: modules.fun,
-                    utility: modules.utility,
-                    levels: modules.levels?.enabled,
-                    logging: modules.logging?.enabled
-                });
+            const modules = response.data.modules;
+            setToggleState({
+                welcomeMessages: modules.welcomeMessages?.enabled,
+                leaveMessages: modules.leaveMessages?.enabled,
+                moderation: modules.moderation,
+                fun: modules.fun,
+                utility: modules.utility,
+                levels: modules.levels?.enabled,
+                logging: modules.logging?.enabled
+            });
             })
             .catch(error => {
-                console.error('There was an error retrieving the data!', error);
+            console.error('There was an error retrieving the data!', error);
             });
     }, [guildId]);
 
@@ -99,9 +99,7 @@ function ServerConfig() {
                         enabled: newState[module]
                     },
                     {
-                        headers: {
-                            Authorization: `Bearer ${Cookies.get('token')}`
-                        }
+                        withCredentials: true
                     }
                 )
                     .then(response => {
@@ -122,9 +120,7 @@ function ServerConfig() {
                         enabled: newState[module]
                     },
                     {
-                        headers: {
-                            Authorization: `Bearer ${Cookies.get('token')}`
-                        }
+                        withCredentials: true
                     }
                 )
                     .then(response => {

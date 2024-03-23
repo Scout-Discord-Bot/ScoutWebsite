@@ -11,10 +11,7 @@ const Dashboard = (props) => {
         const dataKey = Cookies.get('dataKey');
 
         axios.get('https://api.scoutbot.xyz/userdata', {
-            headers: { Authorization: `Bearer ${Cookies.get('token')}` },
-            params: {
-                dataKey: dataKey
-            }
+            withCredentials: true,
         })
             .then(response => {
                 setUserData(response.data); // Store the response data in your state variable
@@ -22,10 +19,8 @@ const Dashboard = (props) => {
                 // Make an additional API request with the guild IDs
                 const guildIds = response.data.guilds.map(guild => guild.id);
                 return axios.get('https://api.scoutbot.xyz/bot/guilds', {
-                    headers: { Authorization: `Bearer ${Cookies.get('token')}` },
-                    params: {
-                        'guildIds': guildIds
-                    }
+                    withCredentials: true,
+                    params: { 'guildIds': guildIds }
                 });
             })
             .then(response => {

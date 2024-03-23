@@ -10,8 +10,7 @@ const Logout = () => {
         const handleLogout = () => {
             axios.post(
                 "https://api.scoutbot.xyz/oauth/logout", 
-                { dataKey: Cookies.get("dataKey") }, 
-                { headers: { Authorization: `Bearer ${Cookies.get("token")}` } }
+                { withCredentials: true}
             )
             .then(() => {
                 Cookies.remove("token");

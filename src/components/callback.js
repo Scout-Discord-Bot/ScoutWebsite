@@ -22,8 +22,6 @@ const Callback = () => {
         withCredentials: true
       })
         .then(response => {
-          //Cookies.set('dataKey', response.data.dataKey, { secure: true, sameSite: 'lax', path: '/' });
-          //Cookies.set('token', response.data.token, { secure: true, sameSite: 'lax', path: '/' });
           navigate('/dashboard');
           console.log(response);
         })
