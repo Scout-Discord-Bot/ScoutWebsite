@@ -50,7 +50,7 @@ const RoutesComponent = () => {
         if (response.status === 200) {
           const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
           const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, { withCredentials: true, params: { guildId: guildId } });
-          console.log('User access response:', accessResponse);
+          console.log('User access response:', accessResponse.data);
           setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
         } else {
           navigate("/");
@@ -64,6 +64,7 @@ const RoutesComponent = () => {
   
   
   console.log('User access:', userAccess);
+  
   
 
 
