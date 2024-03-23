@@ -11,6 +11,8 @@ const Callback = () => {
     const code = params.get('code');
     const state = params.get('state');
 
+    console.log(state);
+
 
     if (code) {
       axios.post('https://api.scoutbot.xyz/oauth/callback', {
@@ -20,9 +22,10 @@ const Callback = () => {
         withCredentials: true
       })
         .then(response => {
-          Cookies.set('dataKey', response.data.dataKey, { secure: true, sameSite: 'lax', path: '/' });
+          Cookies.set('dataKey', response.data.dataKey, { secure: true, sameSite: 'lax', path: '/' , httpOnly: true});
           Cookies.set('token', response.data.token, { secure: true, sameSite: 'lax', path: '/', httpOnly: true});
           navigate('/dashboard');
+          console.log(response);
         })
         .catch(error => {
           if (error.response && error.response.status === 400) {

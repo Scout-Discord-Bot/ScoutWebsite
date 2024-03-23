@@ -50,7 +50,7 @@ function Navigation() {
         const state = params.get('state');
   
         console.log('State value:', state);
-        Cookies.set('oauth2state', state, { secure: true, sameSite: 'lax' });
+        Cookies.set('oauth2state', state, { domain: '.scoutbot.xyz' });
         setAuthUrl(response.data.authUrl);
       })
       .catch(error => {
