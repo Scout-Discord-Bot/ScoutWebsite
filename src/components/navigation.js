@@ -24,6 +24,7 @@ function Navigation() {
       axios.get(`https://api.scoutbot.xyz/userdata`, {
         headers: { Authorization: `Bearer ${Cookies.get('token')}` },
         params: { dataKey: dataKey }
+  
       }).then(response => {
         if (response.status === 401) {
           // The token has expired or is invalid
@@ -49,13 +50,15 @@ function Navigation() {
         const state = params.get('state');
   
         console.log('State value:', state);
-        Cookies.set('oauth2state', state, { secure: true, sameSite: 'Lax' });
+        Cookies.set('oauth2state', state, { secure: true, sameSite: 'lax' });
         setAuthUrl(response.data.authUrl);
       })
       .catch(error => {
         console.error('Authorization error:', error);
       });
   }, []); // Empty dependency array to run the hook only once
+
+  console.log(authUrl);
 
   return (
     <nav className="navbar">
