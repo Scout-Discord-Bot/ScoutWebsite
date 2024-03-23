@@ -21,7 +21,7 @@ const Callback = () => {
       })
         .then(response => {
           Cookies.set('dataKey', response.data.dataKey, { secure: true, sameSite: 'lax', path: '/' });
-          Cookies.set('token', response.data.token, { secure: true, sameSite: 'lax', path: '/' });
+          Cookies.set('token', response.data.token, { secure: true, sameSite: 'lax', path: '/', httpOnly: true});
           navigate('/dashboard');
         })
         .catch(error => {
