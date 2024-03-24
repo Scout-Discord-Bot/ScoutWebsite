@@ -26,16 +26,16 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkAccess = async () => {
-      try {
-        const userRes = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
-        console.log('User data response:', userRes); // Log the response
+  const checkAccess = async () => {
+    try {
+      const userRes = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
+      console.log('User data response:', userRes); // Log the response
 
-        if (userRes.status !== 200) {
-          console.log('User not logged in');
-          navigate("/");
-          return;
-        }
+      if (userRes.status === 200) { // Corrected condition
+        console.log('User is logged in');
+        setHasAccess(true);
+        return;
+      }
 
         if (checkGuildAccess && guildId) {
           const accessRes = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
