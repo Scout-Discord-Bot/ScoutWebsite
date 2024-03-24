@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
-//import Cookies from 'js-cookie';
 import Home from './pages/home/home';
 import Support from './pages/support/support';
 import PrivacyPolicy from './pages/privacypolicy/privacypolicy';
@@ -22,40 +21,24 @@ import Logging from './pages/serverconfig/logging/logging';
 import Login from './components/login';
 import Logout from './components/logout';
 
-function withAuthorization(Component, userHasAccess) {
-  return function (props) {
-    if (userHasAccess) {
-      return <Component {...props} />;
-    } else {
-      return <Navigate to="/dashboard" />;
-    }
-  };
-}
-
-
-const RoutesComponent = () => {
+const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  //const [isLoading, setIsLoading] = useState(true);
   const [userAccess, setUserAccess] = useState('None');
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const checkAuthentication = async () => {
-      // Fetch user data from your backend. This request relies on session cookies.
       const response = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
       setIsLoggedIn(response.status === 200);
 
       if (response.status === 200 && location.pathname.startsWith('/dashboard/')) {
-        const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
-        console.log('Guild ID:', guildId);
-        // Fetch user access level for a specific guild. This request also relies on session cookies.
+        const guildId = location.pathname.split('/')[2];
         const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
           withCredentials: true,
           params: { guildId: guildId }
         });
-
-        setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
+        setUserAccess(accessResponse.data.role);
       } else if (response.status !== 200) {
         navigate("/");
       }
@@ -64,46 +47,34 @@ const RoutesComponent = () => {
     checkAuthentication();
   }, [location, navigate]);
 
-
-
-  console.log('User access:', userAccess);
-
-
-
-
   const userHasAccess = userAccess === 'Owner' || userAccess === 'Admin';
-  console.log('User has access:', userHasAccess);
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/support" element={<Support />} />
-      <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/legal/terms-of-service" element={<TermsOfService />} />
-      <Route path="/ourteam" element={<Team />} />
-      <Route path="*" element={<NotFound />} />
-      <Route path="/oauth/callback" element={<Callback />} />
-      <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
-      <Route path="/logout" element={<Logout />} />
 
-      <Route path="/dashboard/:guildId" element={() => withAuthorization(ServerConfig, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/*" element={() => withAuthorization(ServerConfig, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/serverSettings" element={() => withAuthorization(ServerSettings, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/welcomeMessages" element={() => withAuthorization(WelcomeMessages, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/leaveMessages" element={() => withAuthorization(LeaveMessages, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/moderation" element={() => withAuthorization(Moderation, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/fun" element={() => withAuthorization(Fun, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/utility" element={() => withAuthorization(Utility, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/levels" element={() => withAuthorization(Levels, userHasAccess)()} />
-      <Route path="/dashboard/:guildId/logging" element={() => withAuthorization(Logging, userHasAccess)()} />
-    </Routes>
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/legal/terms-of-service" element={<TermsOfService />} />
+        <Route path="/ourteam" element={<Team />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/oauth/callback" element={<Callback />} />
+        <Route path="/logout" element={<Logout />} />
+
+        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
+        <Route path="/dashboard/:guildId" element={userHasAccess ? <ServerConfig /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/serverSettings" element={userHasAccess ? <ServerSettings /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/welcomeMessages" element={userHasAccess ? <WelcomeMessages /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/leaveMessages" element={userHasAccess ? <LeaveMessages /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/moderation" element={userHasAccess ? <Moderation /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/fun" element={userHasAccess ? <Fun /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/utility" element={userHasAccess ? <Utility /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/levels" element={userHasAccess ? <Levels /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard/:guildId/logging" element={userHasAccess ? <Logging /> : <Navigate to="/dashboard" />} />
+      </Routes>
+    </Router>
   );
 };
-
-const App = () => (
-  <Router>
-    <RoutesComponent />
-  </Router>
-);
 
 export default App;
