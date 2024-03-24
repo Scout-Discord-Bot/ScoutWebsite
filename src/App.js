@@ -65,12 +65,14 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
 
 const DashboardRoute = () => {
   const hasAccess = useAuth();
+  console.log('DashboardRoute:', hasAccess); // Log hasAccess
 
   return hasAccess ? <Dashboard /> : <Navigate to="/" />;
 };
 
 const GuildSpecificRoutes = ({ component: Component }) => {
   const { guildId } = useParams();
+  console.log('guildId:', guildId); // Log guildId
   const hasAccess = useAuth(true, guildId);
 
   return hasAccess ? <Component /> : <Navigate to="/dashboard" />;
