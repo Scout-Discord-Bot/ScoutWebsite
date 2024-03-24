@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useNavigate } from 'react'; // Corrected import
+import React, { useState, useEffect } from 'react'; // Corrected import
 import axios from 'axios';
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom'; // Removed unused imports
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom'; // Removed unused imports
 import Home from './pages/home/home';
 import Support from './pages/support/support';
 import PrivacyPolicy from './pages/privacypolicy/privacypolicy';
