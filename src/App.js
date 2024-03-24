@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Corrected import
+import React, { useEffect, useRef } from 'react'; // Corrected import
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Navigate, useParams, useNavigate } from 'react-router-dom'; // Removed unused imports
 import Home from './pages/home/home';
@@ -22,21 +22,20 @@ import Login from './components/login';
 import Logout from './components/logout';
 
 const useAuth = (checkGuildAccess = false, guildId = null) => {
-  const [hasAccess, setHasAccess] = useState(false);
+  const hasAccessRef = useRef(false); // Use a ref instead of a state variable
   const navigate = useNavigate();
 
   useEffect(() => {
-  const checkAccess = async () => {
-    try {
-      const userRes = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
-      console.log('User data response:', userRes); // Log the response
+    const checkAccess = async () => {
+      try {
+        const userRes = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
+        console.log('User data response:', userRes);
 
-      if (userRes.status === 200) {
-        console.log('User is logged in');
-        setHasAccess(true);
-        console.log('hasAccess after setHasAccess:', hasAccess); // Log hasAccess
-        return;
-      }
+        if (userRes.status === 200) {
+          console.log('User is logged in');
+          hasAccessRef.current = true;
+          return;
+        }
 
         if (checkGuildAccess && guildId) {
           const accessRes = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
@@ -46,12 +45,12 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
 
           if (['Owner', 'Admin'].includes(accessRes.data.role)) {
             console.log('User has access');
-            setHasAccess(true);
+            hasAccessRef.current = true; // Update the ref
           } else {
             navigate("/");
           }
         } else {
-          setHasAccess(true);
+          hasAccessRef.current = true; // Update the ref
         }
       } catch (error) {
         console.error('Error checking access:', error);
@@ -62,7 +61,7 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
     checkAccess();
   }, [navigate, checkGuildAccess, guildId]);
 
-  return hasAccess;
+  return hasAccessRef.current; // Return the current value of the ref
 };
 
 const DashboardRoute = () => {
