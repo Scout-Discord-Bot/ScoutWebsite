@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Corrected import
+import React, { useState, useEffect, useNavigate } from 'react'; // Corrected import
 import axios from 'axios';
 import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom'; // Removed unused imports
 import Home from './pages/home/home';
@@ -23,7 +23,7 @@ import Logout from './components/logout';
 
 const useAuth = (checkGuildAccess = false, guildId = null) => {
   const [hasAccess, setHasAccess] = useState(false);
-  const navigate = Navigate(); // Corrected to use Navigate as a hook
+  const navigate = useNavigate(); // Corrected to use useNavigate hook
 
   useEffect(() => {
     const checkAccess = async () => {
