@@ -31,9 +31,10 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
       const userRes = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
       console.log('User data response:', userRes); // Log the response
 
-      if (userRes.status === 200) { // Corrected condition
+      if (userRes.status === 200) {
         console.log('User is logged in');
         setHasAccess(true);
+        console.log('hasAccess after setHasAccess:', hasAccess); // Log hasAccess
         return;
       }
 
