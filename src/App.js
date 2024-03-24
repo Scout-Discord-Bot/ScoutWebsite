@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Corrected import
 import axios from 'axios';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom'; // Removed unused imports
 import Home from './pages/home/home';
 import Support from './pages/support/support';
 import PrivacyPolicy from './pages/privacypolicy/privacypolicy';
@@ -21,34 +21,60 @@ import Logging from './pages/serverconfig/logging/logging';
 import Login from './components/login';
 import Logout from './components/logout';
 
-const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userAccess, setUserAccess] = useState('None');
-  const location = useLocation();
-  const navigate = useNavigate();
+const useAuth = (checkGuildAccess = false, guildId = null) => {
+  const [hasAccess, setHasAccess] = useState(false);
+  const navigate = Navigate(); // Corrected to use Navigate as a hook
 
   useEffect(() => {
-    const checkAuthentication = async () => {
-      const response = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
-      setIsLoggedIn(response.status === 200);
+    const checkAccess = async () => {
+      try {
+        const userRes = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
+        
+        if (userRes.status !== 200) {
+          navigate("/");
+          return;
+        }
 
-      if (response.status === 200 && location.pathname.startsWith('/dashboard/')) {
-        const guildId = location.pathname.split('/')[2];
-        const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
-          withCredentials: true,
-          params: { guildId: guildId }
-        });
-        setUserAccess(accessResponse.data.role);
-      } else if (response.status !== 200) {
+        if (checkGuildAccess && guildId) {
+          const accessRes = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
+            withCredentials: true,
+            params: { guildId }
+          });
+
+          if (['Owner', 'Admin'].includes(accessRes.data.role)) {
+            setHasAccess(true);
+          } else {
+            navigate("/");
+          }
+        } else {
+          setHasAccess(true);
+        }
+      } catch (error) {
+        console.error('Error checking access:', error);
         navigate("/");
       }
     };
 
-    checkAuthentication();
-  }, [location, navigate]);
+    checkAccess();
+  }, [navigate, checkGuildAccess, guildId]);
 
-  const userHasAccess = userAccess === 'Owner' || userAccess === 'Admin';
+  return hasAccess;
+};
 
+const DashboardRoute = () => {
+  const hasAccess = useAuth();
+
+  return hasAccess ? <Dashboard /> : null;
+};
+
+const GuildSpecificRoutes = ({ component: Component }) => {
+  const { guildId } = useParams();
+  const hasAccess = useAuth(true, guildId);
+
+  return hasAccess ? <Component /> : null;
+};
+
+const App = () => {
   return (
     <Router>
       <Routes>
@@ -61,17 +87,16 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/oauth/callback" element={<Callback />} />
         <Route path="/logout" element={<Logout />} />
-
-        <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
-        <Route path="/dashboard/:guildId" element={userHasAccess ? <ServerConfig /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/serverSettings" element={userHasAccess ? <ServerSettings /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/welcomeMessages" element={userHasAccess ? <WelcomeMessages /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/leaveMessages" element={userHasAccess ? <LeaveMessages /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/moderation" element={userHasAccess ? <Moderation /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/fun" element={userHasAccess ? <Fun /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/utility" element={userHasAccess ? <Utility /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/levels" element={userHasAccess ? <Levels /> : <Navigate to="/dashboard" />} />
-        <Route path="/dashboard/:guildId/logging" element={userHasAccess ? <Logging /> : <Navigate to="/dashboard" />} />
+        <Route path="/dashboard" element={<DashboardRoute />} />
+        <Route path="/dashboard/:guildId" element={<GuildSpecificRoutes component={ServerConfig} />} />
+        <Route path="/dashboard/:guildId/serverSettings" element={<GuildSpecificRoutes component={ServerSettings} />} />
+        <Route path="/dashboard/:guildId/welcomeMessages" element={<GuildSpecificRoutes component={WelcomeMessages} />} />
+        <Route path="/dashboard/:guildId/leaveMessages" element={<GuildSpecificRoutes component={LeaveMessages} />} />
+        <Route path="/dashboard/:guildId/moderation" element={<GuildSpecificRoutes component={Moderation} />} />
+        <Route path="/dashboard/:guildId/fun" element={<GuildSpecificRoutes component={Fun} />} />
+        <Route path="/dashboard/:guildId/utility" element={<GuildSpecificRoutes component={Utility} />} />
+        <Route path="/dashboard/:guildId/levels" element={<GuildSpecificRoutes component={Levels} />} />
+        <Route path="/dashboard/:guildId/logging" element={<GuildSpecificRoutes component={Logging} />} />
       </Routes>
     </Router>
   );
