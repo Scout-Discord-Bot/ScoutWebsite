@@ -23,7 +23,7 @@ import Logout from './components/logout';
 
 const useAuth = (checkGuildAccess = false, guildId = null) => {
   const [hasAccess, setHasAccess] = useState(false);
-  const navigate = useNavigate(); // Corrected to use useNavigate hook
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkAccess = async () => {
@@ -31,6 +31,7 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
         const userRes = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
         
         if (userRes.status !== 200) {
+          console.log('User not logged in');
           navigate("/");
           return;
         }
@@ -38,10 +39,11 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
         if (checkGuildAccess && guildId) {
           const accessRes = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
             withCredentials: true,
-            params: { guildId }
+            params: { guildId } // Pass guildId as a query parameter
           });
 
           if (['Owner', 'Admin'].includes(accessRes.data.role)) {
+            console.log('User has access');
             setHasAccess(true);
           } else {
             navigate("/");
