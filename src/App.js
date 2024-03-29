@@ -111,7 +111,7 @@ const RoutesComponent = () => {
       <Route path="*" element={<NotFound />} />
       <Route path="/oauth/callback" element={<Callback />} />
       <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/" />} />
-      <Route path="/signout" element={<Logout />} />
+      <Route path="/logout" element={<Logout />} />
 
       <Route path="/dashboard/:guildId" element={isLoggedIn ? withAuthorization(ServerConfig, userHasAccess)() : <Navigate to="/" />} />
       <Route path="/dashboard/:guildId/*" element={isLoggedIn ? withAuthorization(ServerConfig, userHasAccess)() : <Navigate to="/" />} />

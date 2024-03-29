@@ -29,10 +29,7 @@ function WelcomeMessages() {
         const dataKey = Cookies.get('dataKey'); // Get dataKey from cookies
 
         if (dataKey) {
-            axios.get('https://api.scoutbot.xyz/userdata', {
-                headers: { Authorization: `Bearer ${Cookies.get('token')}` },
-                params: { dataKey: dataKey }
-            })
+            axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true })
                 .then(response => {
                     const guilds = response.data.guilds;
                     const guild = guilds.find(g => g.id === guildId); // Find the guild with the matching guildId

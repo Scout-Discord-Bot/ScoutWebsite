@@ -44,7 +44,7 @@ function Navigation() {
         setAuthUrl(response.data.authUrl);
       })
       .catch(error => {
-        console.error('Authorization error:', error);
+        console.log('Session not signed in.')
       });
   }, []); // Empty dependency array to run the hook only once
 
