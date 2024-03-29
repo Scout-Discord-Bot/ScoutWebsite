@@ -22,7 +22,7 @@ import Login from './components/login';
 import Logout from './components/logout';
 
 const useAuth = (checkGuildAccess = false, guildId = null) => {
-  const hasAccessRef = useRef(false); // Use a ref instead of a state variable
+  const [hasAccess, setHasAccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
 
         if (userRes.status === 200) {
           console.log('User is logged in');
-          hasAccessRef.current = true;
+          setHasAccess(prevHasAccess => true); // Use a callback with setState
           return;
         }
 
@@ -61,7 +61,7 @@ const useAuth = (checkGuildAccess = false, guildId = null) => {
     checkAccess();
   }, [navigate, checkGuildAccess, guildId]);
 
-  return hasAccessRef.current; // Return the current value of the ref
+  return hasAccess;
 };
 
 const DashboardRoute = () => {
