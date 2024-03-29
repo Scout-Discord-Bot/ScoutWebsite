@@ -45,14 +45,16 @@ const RoutesComponent = () => {
       try {
         if (location.pathname.startsWith('/dashboard')) {
 
-          const response = await axios.get(`https://api.scoutbot.xyz/userdata`)
-
+          const response = await axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true });
 
           setIsLoggedIn(response.status === 200);
 
           if (response.status === 200) {
             const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
-            const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, { params: { guildId: guildId } });
+            const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, {
+              params: { guildId: guildId },
+              withCredentials: true
+            });
             setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
           }
         }
