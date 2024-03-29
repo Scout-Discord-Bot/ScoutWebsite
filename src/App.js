@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';import Cookies from 'js-cookie';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Home from './pages/home/home';
 import Support from './pages/support/support';
 import PrivacyPolicy from './pages/privacypolicy/privacypolicy';
@@ -41,28 +41,32 @@ const RoutesComponent = () => {
 
   useEffect(() => {
     const checkAuthentication = async () => {
-      if (location.pathname.startsWith('/dashboard')) {
-        const dataKey = Cookies.get('dataKey');
-        const token = Cookies.get('token');
-    
-        if (!token) {
-          navigate("/");
-          return;
+
+      try {
+        if (location.pathname.startsWith('/dashboard')) {
+
+          const response = await axios.get(`https://api.scoutbot.xyz/userdata`)
+
+
+          setIsLoggedIn(response.status === 200);
+
+          if (response.status === 200) {
+            const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
+            const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, { params: { guildId: guildId } });
+            setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
+          }
         }
-    
-        const response = await axios.get(`https://api.scoutbot.xyz/userdata`)
-    
-        setIsLoggedIn(response.status === 200);
-    
-        if (response.status === 200) {
-          const guildId = location.pathname.split('/')[2]; // Extract guildId from the path
-          const accessResponse = await axios.get(`https://api.scoutbot.xyz/guild/useraccess`, { params: { guildId: guildId} });
-          setUserAccess(accessResponse.data.role); // Set userAccess to the role from the response
+      }
+      catch (error) {
+        if (error.response && error.response.status === 404) {
+          navigate("/");
+        } else {
+          console.error('Error checking access:', error);
         }
       }
       setIsLoading(false);
     };
-    
+
     checkAuthentication();
   }, [location, navigate]);
 
