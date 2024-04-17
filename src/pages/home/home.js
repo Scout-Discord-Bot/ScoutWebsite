@@ -17,7 +17,7 @@ const Home = () => {
     useEffect(() => {
         ScrollReveal().reveal('.description', { delay: 200 });
         ScrollReveal().reveal('.features', { delay: 400 });
-      }, []);
+    }, []);
 
     return (
 
@@ -44,7 +44,7 @@ const Home = () => {
                 <img src={splashSGV} style={{ width: "100%" }} alt="SplashTextTransitionSVG" />
             </section>
 
-          
+
 
 
 
@@ -127,7 +127,7 @@ const Home = () => {
                         <div className='commitment'>
                             <h2>Our Commitment</h2>
                             <p>
-                            Our dedication to delivering outstanding quality is reflected in the glowing endorsements we've received from our vibrant community. Many users rank our bot among the elite, placing it shoulder to shoulder with esteemed names like MEE6, Dyno, and Carl-Bot. This widespread trust and acclaim are a testament to our unwavering commitment to enhancing the Discord experience for users across the globe. Join the ranks of satisfied users and discover why our bot is heralded as a pinnacle of reliability and user satisfaction.
+                                Our dedication to delivering outstanding quality is reflected in the glowing endorsements we've received from our vibrant community. Many users rank our bot among the elite, placing it shoulder to shoulder with esteemed names like MEE6, Dyno, and Carl-Bot. This widespread trust and acclaim are a testament to our unwavering commitment to enhancing the Discord experience for users across the globe. Join the ranks of satisfied users and discover why our bot is heralded as a pinnacle of reliability and user satisfaction.
                             </p>
                         </div>
                         <br></br>
@@ -136,10 +136,10 @@ const Home = () => {
                         <div className='inviteus'>
                             <h2>Join Us Today!</h2>
                             <p>
-                            Transform your server today with our bot and unlock a new realm of moderation, logging, utility, and entertainment. Become part of an elite group of satisfied server admins who have revolutionized their community management and engagement strategies with our top-tier Discord bot. Don't miss out on the opportunity to bring efficiency, order, and fun to your server with a single, powerful tool. Upgrade now and witness the remarkable difference it makes!
+                                Transform your server today with our bot and unlock a new realm of moderation, logging, utility, and entertainment. Become part of an elite group of satisfied server admins who have revolutionized their community management and engagement strategies with our top-tier Discord bot. Don't miss out on the opportunity to bring efficiency, order, and fun to your server with a single, powerful tool. Upgrade now and witness the remarkable difference it makes!
                             </p>
                         </div>
-                        
+
                     </div>
                 </section>
 
