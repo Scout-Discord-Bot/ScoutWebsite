@@ -4,6 +4,7 @@ import './welcome_messages.css';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
+import EmbedCustomisation from '../../../components/EmbedCustomisation';
 
 
 
@@ -112,6 +113,7 @@ function WelcomeMessages() {
                         </label>
                     </div>
                 )}
+                <EmbedCustomisation />
             </div>
 
         </div>

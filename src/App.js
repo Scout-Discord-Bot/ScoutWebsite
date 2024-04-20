@@ -42,6 +42,13 @@ const RoutesComponent = () => {
   useEffect(() => {
     const checkAuthentication = async () => {
 
+      if (process.env.NODE_ENV === 'development') {
+        setIsLoggedIn(true);
+        setUserAccess('Owner');
+        setIsLoading(false);
+        return;
+      }
+
       try {
         if (location.pathname.startsWith('/dashboard')) {
 
