@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { SketchPicker } from 'react-color';
 import './EmbedCustomisation.css';
 import ColorPicker from './ColourPicker';
 
