@@ -120,6 +120,9 @@ function ServerSettings() {
         setSuccessColor(colors.success);
         setErrorColor(colors.error);
         setWarningColor(colors.warning);
+
+        const timezone = response.data.serverSettings.timezone;
+        setSelectedTimezone(timezoneOptions.find(tz => tz.value === timezone));
       })
       .catch(error => {
         console.error('Error fetching colors:', error);
