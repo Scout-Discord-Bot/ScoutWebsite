@@ -29,7 +29,7 @@ body {
   font-size: 30px;
 }
 
-section {
+#serverSettings section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -39,13 +39,13 @@ section {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-section h2 {
+#serverSettings section h2 {
   margin-bottom: 20px;
   color: #333;
   font-size: 24px;
 }
 
-section div {
+#serverSettings section div {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -53,11 +53,11 @@ section div {
   padding: 0 20px 0 0;
 }
 
-section h3 {
+#serverSettings section h3 {
   margin-right: auto;
 }
 
-section input[type="color"] {
+#serverSettings section input[type="color"] {
   cursor: pointer;
   border: none;
   height: 40px;
@@ -67,11 +67,11 @@ section input[type="color"] {
   -webkit-appearance: none;
 }
 
-section input[type="color"]::-webkit-color-swatch-wrapper {
+#serverSettings section input[type="color"]::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-section input[type="color"]::-webkit-color-swatch {
+#serverSettings section input[type="color"]::-webkit-color-swatch {
   border: none;
   border-radius: 50%;
 }
