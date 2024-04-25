@@ -155,7 +155,7 @@ function ServerConfig() {
 
     const ServerSettingsCard = () => {
         return (
-            <Link to="server_settings" className="dashboard-home-card">
+            <Link to="serverSettings" className="dashboard-home-card">
                 <h2>Server Settings</h2>
                 <p>Configure your server settings here.</p>
                 <button className="button">Configure Server Settings</button>
