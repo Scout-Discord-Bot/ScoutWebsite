@@ -4,6 +4,13 @@ import './server_settings.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Notification from '../../../components/notification';
+import Select from 'react-select';
+import { getTimezones } from 'timezone-list';
+
+
+const timezoneOptions = getTimezones().map(tz => ({ value: tz, label: tz }));
+
+const sortedTimezoneOptions = timezoneOptions.sort((a, b) => (a.label < b.label ? -1 : 1));
 
 const DEFAULT_COLORS = {
   default: '#69dc9e',
@@ -12,18 +19,15 @@ const DEFAULT_COLORS = {
   warning: '#f8c57c',
 };
 
-
 function ServerSettings() {
   const { guildId } = useParams();
   const [guild, setGuild] = useState(null);
-
-  const [defaultColor, setDefaultColor] = useState('#000000');
-  const [successColor, setSuccessColor] = useState('#00FF00');
-  const [errorColor, setErrorColor] = useState('#FF0000');
-  const [warningColor, setWarningColor] = useState('#FFFF00');
-
+  const [selectedTimezone, setSelectedTimezone] = useState(null);
+  const [defaultColor, setDefaultColor] = useState(DEFAULT_COLORS.default);
+  const [successColor, setSuccessColor] = useState(DEFAULT_COLORS.success);
+  const [errorColor, setErrorColor] = useState(DEFAULT_COLORS.error);
+  const [warningColor, setWarningColor] = useState(DEFAULT_COLORS.warning);
   const [hasChanges, setHasChanges] = useState(false);
-
   const [notificationData, setNotificationData] = useState([]);
 
   const resetColors = () => {
@@ -34,7 +38,6 @@ function ServerSettings() {
     setHasChanges(true);
   };
 
-  
 
   const clearNotification = (index) => {
     setNotificationData(notificationData.filter((_, i) => i !== index));
@@ -46,30 +49,60 @@ function ServerSettings() {
   };
 
   const saveChanges = () => {
-    axios.post('https://api.scoutbot.xyz/guildsettings', { guildId: guildId, colours: { default: defaultColor, success: successColor, error: errorColor, warning: warningColor } }, { withCredentials: true })
+    axios.post(
+      'https://api.scoutbot.xyz/guildsettings/serversettings/update',
+      {
+        guildId: guildId,
+        setting: 'colours',
+        value: {
+          default: defaultColor,
+          success: successColor,
+          error: errorColor,
+          warning: warningColor
+        }
+      },
+      { withCredentials: true }
+    )
       .then(response => {
         console.log('Changes saved!');
-        // Clear any previous error notifications
         setNotificationData(notificationData.filter(notif => notif.type !== 'error'));
       })
       .catch(error => {
         console.error('Error saving changes:', error);
-        // Add a new error notification
         setNotificationData([...notificationData, { type: 'error', text: 'There was an error saving changes' }]);
       });
 
     setHasChanges(false);
   };
 
-  useEffect(() => {
+  const saveTimezone = (selectedTimezone) => {
+    axios.post(
+      'https://api.scoutbot.xyz/guildsettings/serversettings/update',
+      {
+        guildId: guildId,
+        setting: 'timezone',
+        value: selectedTimezone.value // Send the selected timezone as the value
+      },
+      { withCredentials: true }
+    )
+      .then(response => {
+        console.log('Timezone changes saved!');
+        setNotificationData(notificationData.filter(notif => notif.type !== 'error'));
+      })
+      .catch(error => {
+        console.error('Error saving timezone changes:', error);
+        setNotificationData([...notificationData, { type: 'error', text: 'There was an error saving timezone changes' }]);
+      });
+  };
 
+  useEffect(() => {
     axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true })
       .then(response => {
         const guilds = response.data.guilds;
-        const guild = guilds.find(g => g.id === guildId); // Find the guild with the matching guildId
+        const guild = guilds.find(g => g.id === guildId);
 
         if (guild) {
-          setGuild(guild.name); // Set the guild's name to state
+          setGuild(guild.name);
         } else {
           console.error('Guild not found!');
         }
@@ -93,18 +126,14 @@ function ServerSettings() {
       });
   }, [guildId]);
 
-
   return (
     <div id='serverSettings'>
       <Navigation />
-
       <header>
-
         <h1>Server Settings</h1>
         <p>Server Configuration for {guild} ({guildId})</p>
         <button className='backButton'><Link to={`/dashboard/${guildId}`}>Back to Server Dashboard</Link></button>
       </header>
-
       <section>
         <h2>Bot Colours</h2>
         <div>
@@ -125,17 +154,45 @@ function ServerSettings() {
             <input type="color" value={warningColor} onChange={(e) => handleColorChange(setWarningColor, e.target.value)} />
           </div>
         </div>
-
         <button className={`button ${hasChanges ? 'has-changes' : 'no-changes'}`} disabled={!hasChanges} onClick={saveChanges}>Save Changes</button>
-        <button className="reset" onClick={resetColors}>Reset Colors</button>
+        <button className="reset" onClick={resetColors}>Reset Colours</button>
       </section>
-
+      <section>
+        <h2>Server Timezone</h2>
+        <h3>Select your timezone</h3>
+        {/* Use menuPortalTarget to render the dropdown outside of the parent container */}
+        <Select
+          value={selectedTimezone}
+          onChange={(selectedOption) => {
+            setSelectedTimezone(selectedOption);
+            saveTimezone(selectedOption);
+          }}
+          options={sortedTimezoneOptions}
+          menuPortalTarget={document.body}
+          isSearchable={true}
+          styles={{
+            input: (provided) => ({
+              ...provided,
+              textAlign: 'left',
+            }),
+            placeholder: (provided) => ({
+              ...provided,
+              position: 'absolute',
+              left: '5px',
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+              position: 'absolute',
+              left: '5px',
+            }),
+          }}
+        />
+      </section>
       <div className="notification-container">
         {notificationData.map((notif, index) =>
           <Notification key={index} type={notif.type} text={notif.text} clearNotification={() => clearNotification(index)} />
         )}
       </div>
-
     </div>
   );
 }

@@ -28,8 +28,7 @@ body {
 #welcomeMessages header h2 {
   font-size: 30px;
 }
-
-.backButton {
+#welcomeMessages .backButton {
   background-color: #ffffff;
   border: none;
   border-radius: 10px;
@@ -44,18 +43,18 @@ body {
   transition-duration: 0.4s;
 }
 
-.backButton a {
+#welcomeMessages .backButton a {
   font-family: Lexend;
   text-decoration: none;
   color: black;
 
 }
 
-.backButton:hover {
+#welcomeMessages .backButton:hover {
   background-color: #f6f6f6;
 }
 
-.tab-container {
+#welcomeMessages .tab-container {
   width: 200px;
   height: 50px;
   border: 1px solid #000;
@@ -63,7 +62,7 @@ body {
   margin-bottom: 20px;
 }
 
-.tab {
+#welcomeMessages .tab {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -71,11 +70,11 @@ body {
   cursor: pointer;
 }
 
-.tab input {
+#welcomeMessages .tab input {
   display: none;
 }
 
-.tab label {
+#welcomeMessages .tab label {
   width: 100%;
   height: 100%;
   display: flex;
@@ -84,11 +83,11 @@ body {
   transition: background-color 0.2s ease;
 }
 
-input:checked + label {
+#welcomeMessages input:checked + label {
   background-color: #ddd;
 }
 
-.textInput textarea {
+#welcomeMessages .textInput textarea {
   width: 100%;
   height: 100%;
   border: none;
@@ -99,7 +98,7 @@ input:checked + label {
  
 }
 
-.input-field {
+#welcomeMessages .input-field {
   display: block;
   width: 100%;
   max-width: 300px;
@@ -110,12 +109,12 @@ input:checked + label {
   border: 1px solid #ccc;
 }
 
-.input-field textarea {
+#welcomeMessages .input-field textarea {
   min-height: 100px;
   resize: vertical;
 }
 
-.select-field {
+#welcomeMessages .select-field {
   display: block;
   width: 100%;
   max-width: 300px;
@@ -126,7 +125,7 @@ input:checked + label {
   border: 1px solid #ccc;
 }
 
-.colourSelectorButton {
+#welcomeMessages .colourSelectorButton {
   background-color: #ddd;
   border: none;
   border-radius: 10px;

@@ -8,10 +8,11 @@ body {
 }
 
 #serverSettings .content {
-  font-family: "Lexend", sans-serif;
-  font-size: 20pxrem;
-  padding: 1rem;
-  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  /* Add this line */
+  gap: 1px;
+  /* Adjust this value as needed */
 }
 
 #serverSettings header {
@@ -27,28 +28,31 @@ body {
 
 #serverSettings header h2 {
   font-size: 30px;
-  
 }
 
 #serverSettings section {
-  background-color: #f5f5f5; /* Adjust this value as needed */
-  padding: 20px; /* Adjust this value as needed */
+  display: inline-block;
+  /* Change display property to inline-block */
+  vertical-align: top;
+  /* Align sections to the top */
+  background-color: #f5f5f5;
+  padding: 20px;
   margin: 20px;
-  border-radius: 10px; /* Adjust this value as needed */
-  width: fit-content;
+  border-radius: 10px;
+  width: 350px;
+  /* Adjust as needed */
   height: auto;
-  
 }
 
 #serverSettings section div div {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    width: auto; /* Change this from '10px' to 'auto' */
-  }
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: auto;
+  /* Change this from '10px' to 'auto' */
+}
 
 #serverSettings section h2 {
-  margin-bottom: 20px;
   color: #333;
   font-size: 24px;
 }
@@ -66,6 +70,7 @@ body {
   border-radius: 50%;
   padding: 0;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 #serverSettings section input[type="color"]::-webkit-color-swatch-wrapper {
@@ -97,11 +102,59 @@ body {
 }
 
 #serverSettings section button.reset {
-    background-color: #f5f5f5; /* Adjust this value as needed */
-    color: #000000; /* Adjust this value as needed */
-    padding: 10px; /* Adjust this value as needed */
-    margin: 10px 0; /* Adjust this value as needed */
-    border-radius: 5px; /* Adjust this value as needed */
-    border: none; /* Remove the default button border */
-    cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
-  }
+  background-color: #f5f5f5;
+  /* Adjust this value as needed */
+  color: #000000;
+  /* Adjust this value as needed */
+  padding: 10px;
+  /* Adjust this value as needed */
+  margin: 10px 0;
+  /* Adjust this value as needed */
+  border-radius: 5px;
+  /* Adjust this value as needed */
+  border: none;
+  /* Remove the default button border */
+  cursor: pointer;
+  /* Change the cursor to a pointer when hovering over the button */
+}
+
+#serverSettings section div div.Select {
+  width: auto;
+  /* Set width as needed */
+}
+
+#serverSettings section div div.Select .Select-menu-outer {
+  background-color: white;
+  /* Set background color */
+  border: 1px solid #ccc;
+  /* Add border */
+  border-radius: 5px;
+  /* Add border radius */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Add box shadow */
+}
+
+#serverSettings .backButton {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+#serverSettings .backButton a {
+  font-family: Lexend;
+  text-decoration: none;
+  color: black;
+}
+
+#serverSettings .backButton:hover {
+  background-color: #f6f6f6;
+}

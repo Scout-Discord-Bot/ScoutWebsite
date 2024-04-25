@@ -1,43 +1,43 @@
-.color-picker {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  .color-swatch {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
-  .color-sections {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .predefined-colors,
-  .recent-colors {
-    display: flex;
-    justify-content: flex-start;
-    width: 45%;
-  }
-  
-  input[type="color"] {
-    margin-bottom: 10px;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-  }
+#colourPicker .color-picker {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#colourPicker .color-swatch {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#colourPicker .color-sections {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#colourPicker .predefined-colors,
+.recent-colors {
+  display: flex;
+  justify-content: flex-start;
+  width: 45%;
+}
+
+#colourPicker input[type="color"] {
+  margin-bottom: 10px;
+}
+
+#colourPicker input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
