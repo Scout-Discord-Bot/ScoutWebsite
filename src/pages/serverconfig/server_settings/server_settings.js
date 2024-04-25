@@ -52,13 +52,11 @@ function ServerSettings() {
   useEffect(() => {
     axios.get('https://api.scoutbot.xyz/guildsettings', { withCredentials: true, params: { guildId: guildId } })
       .then(response => {
-        const colors = response.data;
-        if (colors.length >= 4) {
-          setDefaultColor(colors[0]);
-          setSuccessColor(colors[1]);
-          setErrorColor(colors[2]);
-          setWarningColor(colors[3]);
-        }
+        const colors = response.data.serverSettings.colours;
+        setDefaultColor(colors.default);
+        setSuccessColor(colors.success);
+        setErrorColor(colors.error);
+        setWarningColor(colors.warning);
       })
       .catch(error => {
         console.error('Error fetching colors:', error);
