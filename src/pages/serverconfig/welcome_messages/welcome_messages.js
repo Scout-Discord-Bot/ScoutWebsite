@@ -27,9 +27,6 @@ function WelcomeMessages() {
     };
 
     useEffect(() => {
-        const dataKey = Cookies.get('dataKey'); // Get dataKey from cookies
-
-        if (dataKey) {
             axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true })
                 .then(response => {
                     const guilds = response.data.guilds;
@@ -44,7 +41,6 @@ function WelcomeMessages() {
                 .catch(error => {
                     console.error('There was an error retrieving the data!', error);
                 });
-        }
     }, [guildId]);
 
     return (

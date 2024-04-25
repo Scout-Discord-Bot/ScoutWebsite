@@ -38,6 +38,9 @@ function ServerSettings() {
     setHasChanges(true);
   };
 
+  const addNotification = (type, text) => {
+    setNotificationData(oldArray => [...oldArray, { type, text }]);
+  };
 
   const clearNotification = (index) => {
     setNotificationData(notificationData.filter((_, i) => i !== index));
@@ -65,10 +68,12 @@ function ServerSettings() {
     )
       .then(response => {
         console.log('Changes saved!');
-        setNotificationData(notificationData.filter(notif => notif.type !== 'error'));
+        
+        addNotification('success', 'Bot colour changes saved successfully.');
       })
       .catch(error => {
         console.error('Error saving changes:', error);
+        addNotification('error', 'There was an error saving changes to the bot colours.');
         setNotificationData([...notificationData, { type: 'error', text: 'There was an error saving changes' }]);
       });
 
@@ -87,10 +92,12 @@ function ServerSettings() {
     )
       .then(response => {
         console.log('Timezone changes saved!');
+        addNotification('success', 'Timezone changes saved successfully.');
         setNotificationData(notificationData.filter(notif => notif.type !== 'error'));
       })
       .catch(error => {
         console.error('Error saving timezone changes:', error);
+        addNotification('error', 'There was an error saving timezone changes.');
         setNotificationData([...notificationData, { type: 'error', text: 'There was an error saving timezone changes' }]);
       });
   };
@@ -163,7 +170,6 @@ function ServerSettings() {
       <section>
         <h2>Server Timezone</h2>
         <h3>Select your timezone</h3>
-        {/* Use menuPortalTarget to render the dropdown outside of the parent container */}
         <Select
           value={selectedTimezone}
           onChange={(selectedOption) => {
