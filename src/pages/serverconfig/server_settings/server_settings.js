@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import './server_settings.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Notification from '../../../components/notification';
 
 
 
@@ -15,20 +16,33 @@ function ServerSettings() {
   const [errorColor, setErrorColor] = useState('#FF0000');
   const [warningColor, setWarningColor] = useState('#FFFF00');
 
-  const handleDefaultColorChange = (newColor) => {
-    setDefaultColor(newColor);
+  const [hasChanges, setHasChanges] = useState(false);
+
+  const [notificationData, setNotificationData] = useState([]);
+
+  const clearNotification = (index) => {
+    setNotificationData(notificationData.filter((_, i) => i !== index));
   };
 
-  const handleSuccessColorChange = (newColor) => {
-    setSuccessColor(newColor);
+  const handleColorChange = (setColor, newColor) => {
+    setColor(newColor);
+    setHasChanges(true);
   };
 
-  const handleErrorColorChange = (newColor) => {
-    setErrorColor(newColor);
-  };
+  const saveChanges = () => {
+    axios.post('https://api.scoutbot.xyz/guildsettings', { guildId: guildId, colours: { default: defaultColor, success: successColor, error: errorColor, warning: warningColor } }, { withCredentials: true })
+      .then(response => {
+        console.log('Changes saved!');
+        // Clear any previous error notifications
+        setNotificationData(notificationData.filter(notif => notif.type !== 'error'));
+      })
+      .catch(error => {
+        console.error('Error saving changes:', error);
+        // Add a new error notification
+        setNotificationData([...notificationData, { type: 'error', text: 'There was an error saving changes' }]);
+      });
 
-  const handleWarningColorChange = (newColor) => {
-    setWarningColor(newColor);
+    setHasChanges(false);
   };
 
   useEffect(() => {
@@ -76,24 +90,34 @@ function ServerSettings() {
       </header>
 
       <section>
-        <h2>Default Colours</h2>
+        <h2>Bot Colours</h2>
         <div>
-          <h3>Default</h3>
-          <input type="color" value={defaultColor} onChange={(e) => handleDefaultColorChange(e.target.value)} />
+          <div>
+            <h3>Default</h3>
+            <input type="color" value={defaultColor} onChange={(e) => handleColorChange(setDefaultColor, e.target.value)} />
+          </div>
+          <div>
+            <h3>Success</h3>
+            <input type="color" value={successColor} onChange={(e) => handleColorChange(setSuccessColor, e.target.value)} />
+          </div>
+          <div>
+            <h3>Error</h3>
+            <input type="color" value={errorColor} onChange={(e) => handleColorChange(setErrorColor, e.target.value)} />
+          </div>
+          <div>
+            <h3>Warning</h3>
+            <input type="color" value={warningColor} onChange={(e) => handleColorChange(setWarningColor, e.target.value)} />
+          </div>
         </div>
-        <div>
-          <h3>Success</h3>
-          <input type="color" value={successColor} onChange={(e) => handleSuccessColorChange(e.target.value)} />
-        </div>
-        <div>
-          <h3>Error</h3>
-          <input type="color" value={errorColor} onChange={(e) => handleErrorColorChange(e.target.value)} />
-        </div>
-        <div>
-          <h3>Warning</h3>
-          <input type="color" value={warningColor} onChange={(e) => handleWarningColorChange(e.target.value)} />
-        </div>
+
+        <button className={`button ${hasChanges ? 'has-changes' : 'no-changes'}`} disabled={!hasChanges} onClick={saveChanges}>Save Changes</button>
       </section>
+
+      <div className="notification-container">
+        {notificationData.map((notif, index) =>
+          <Notification key={index} type={notif.type} text={notif.text} clearNotification={() => clearNotification(index)} />
+        )}
+      </div>
 
     </div>
   );
