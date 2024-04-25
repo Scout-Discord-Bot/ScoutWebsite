@@ -1,7 +1,6 @@
 import Navigation from '../../../components/navigation';
 import { useParams, Link } from 'react-router-dom';
 import './welcome_messages.css';
-import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
 import EmbedCustomisation from '../../../components/EmbedCustomisation';
