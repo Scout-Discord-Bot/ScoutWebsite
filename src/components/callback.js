@@ -22,7 +22,11 @@ const Callback = () => {
         withCredentials: true
       })
         .then(response => {
-          navigate('/dashboard');
+          if (response.status === 200) {
+            console.log('Authentication successful');
+            navigate('/dashboard');
+          }
+          
         })
         .catch(error => {
           if (error.response && error.response.status === 400) {
