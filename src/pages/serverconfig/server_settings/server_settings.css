@@ -55,6 +55,7 @@ body {
 
 #serverSettings section h3 {
   margin-right: auto;
+  font-weight: normal;
 }
 
 #serverSettings section input[type="color"] {
@@ -94,3 +95,13 @@ body {
 #serverSettings .button.no-changes {
   background-color: grey;
 }
+
+#serverSettings section button.reset {
+    background-color: #f5f5f5; /* Adjust this value as needed */
+    color: #000000; /* Adjust this value as needed */
+    padding: 10px; /* Adjust this value as needed */
+    margin: 10px 0; /* Adjust this value as needed */
+    border-radius: 5px; /* Adjust this value as needed */
+    border: none; /* Remove the default button border */
+    cursor: pointer; /* Change the cursor to a pointer when hovering over the button */
+  }

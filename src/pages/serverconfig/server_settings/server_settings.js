@@ -5,6 +5,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Notification from '../../../components/notification';
 
+const DEFAULT_COLORS = {
+  default: '#69dc9e',
+  success: '#bcf7cb',
+  error: '#f6786a',
+  warning: '#f8c57c',
+};
 
 
 function ServerSettings() {
@@ -19,6 +25,16 @@ function ServerSettings() {
   const [hasChanges, setHasChanges] = useState(false);
 
   const [notificationData, setNotificationData] = useState([]);
+
+  const resetColors = () => {
+    setDefaultColor(DEFAULT_COLORS.default);
+    setSuccessColor(DEFAULT_COLORS.success);
+    setErrorColor(DEFAULT_COLORS.error);
+    setWarningColor(DEFAULT_COLORS.warning);
+    setHasChanges(true);
+  };
+
+  
 
   const clearNotification = (index) => {
     setNotificationData(notificationData.filter((_, i) => i !== index));
@@ -111,6 +127,7 @@ function ServerSettings() {
         </div>
 
         <button className={`button ${hasChanges ? 'has-changes' : 'no-changes'}`} disabled={!hasChanges} onClick={saveChanges}>Save Changes</button>
+        <button className="reset" onClick={resetColors}>Reset Colors</button>
       </section>
 
       <div className="notification-container">
