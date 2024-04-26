@@ -109,7 +109,7 @@ function ServerConfig() {
             } else {
                 // Logic for when the switch is toggled to false
                 axios.post(
-                    `https://api.scoutbot.xyz//guildsettings/module/enabled/update`,
+                    `https://api.scoutbot.xyz/guildsettings/module/enabled/update`,
                     {
                         guildId: guildId,
                         module: module,
