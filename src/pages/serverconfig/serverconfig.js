@@ -100,7 +100,7 @@ function ServerConfig() {
                 )
                     .then(response => {
                         addNotification({ type: 'success', text: `${getDisplayName(module)} has been Enabled!` });
-                        console.log(response.data);
+            
                     })
                     .catch(error => {
                         console.error('There was an error updating the module!', error);
