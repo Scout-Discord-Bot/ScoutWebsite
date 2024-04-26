@@ -4,10 +4,6 @@ import './privacypolicy.css';
 import Footer from '../../components/footer';
 import legalLogo from '../../assets/LegalBW.png';
 
-
-
-
-
 const PrivacyPolicy = () => {
     return (
         <div id='legal'>
@@ -15,8 +11,8 @@ const PrivacyPolicy = () => {
 
             <header id='legal'>
                 <h1>Privacy Policy</h1>
-                <h2>Last Updated: 6th March 2024 (v1.2)</h2>
-                <p>Thank you for using Scout. We are operated from New South Wales, Australia. Scout is committed to protecting your privacy and ensuring the security of your data.</p>
+                <h2>Last Updated: 16th April 2024 (v1.3)</h2>
+                <p>Thank you for using Scout. We are committed to protecting your privacy and ensuring the security of your data.</p>
             </header>
             
             
@@ -48,6 +44,11 @@ const PrivacyPolicy = () => {
                     </section>
 
                     <section>
+                        <h2>Analytics</h2>
+                        <p>We use third-party service providers, such as Google Analytics 4, to monitor and analyze the use of our Service. This helps us measure website traffic and understand user interactions, which enhances and optimizes our service delivery.</p>
+                    </section>
+
+                    <section>
                         <h2>Data Storage</h2>
                         <p>All collected data is securely stored on MongoDB servers which comply with industry data security and privacy standards.</p>
                     </section>
@@ -59,12 +60,12 @@ const PrivacyPolicy = () => {
 
                     <section>
                         <h2>External APIs</h2>
-                        <p>Scout may utilize external APIs for additional functionalities such as retrieving information or providing enhanced services. However, user data is not sent to these external APIs.</p>
+                        <p>Scout may utilize external APIs for additional functionalities such as retrieving information or providing enhanced services. However, user data is not sent to these external APIs without explicit user consent.</p>
                     </section>
 
                     <section>
                         <h2>Data Sharing</h2>
-                        <p>Scout does not share collected data with any third parties.</p>
+                        <p>Scout does not share collected data with any third parties, except as necessary to provide the functionality of the Service or to comply with the law.</p>
                     </section>
 
                     <section>
