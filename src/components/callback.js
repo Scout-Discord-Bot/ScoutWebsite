@@ -59,6 +59,7 @@ const Callback = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      height: '100vh',
       backgroundColor: 'white'
     }}>
       <Helmet>
