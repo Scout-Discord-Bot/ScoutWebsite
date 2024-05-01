@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Navigation from './navigation';
 //import Cookies from 'js-cookie';
 import { Helmet } from 'react-helmet';
 
 const Callback = () => {
+  const [userId, setUserId] = useState('');
+  const [reason, setReason] = useState('');
+  const [timestamp, setTimestamp] = useState('');
   const navigate = useNavigate();
   const [isBlacklisted, setIsBlacklisted] = useState(false); // New state variable
 
@@ -34,6 +36,12 @@ const Callback = () => {
         .catch(error => {
           if (error.response && error.response.status === 403 && error.response.data.message === "User attempting to authenticate is blacklisted") {
             // Redirect to the /blacklisted route
+            setUserId(response.data._id);
+            setReason(response.data.reason);
+            const timestampInSeconds = response.data.timestamp;
+            const date = new Date(timestampInSeconds * 1000);
+            const utcDate = date.toUTCString();
+            setTimestamp(utcDate);
             setIsBlacklisted(true); // Set isBlacklisted to true
           } else {
             if (error.response && error.response.status === 400) {
@@ -51,7 +59,6 @@ const Callback = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100vh',
       backgroundColor: 'white'
     }}>
       <Helmet>
@@ -60,18 +67,18 @@ const Callback = () => {
       {isBlacklisted ? (
         // Content to show when the user is blacklisted
         <div>
-          <Navigation />
 
-          <header>
+          <content>
             <h1>Access Denied</h1>
             <p>You have been blacklisted from using all services offered by Scout.</p>
             <p>If you believe this is a mistake, please contact us at <a href="mailto:support@scoutbot.xyz">support@scoutbot.xyz</a></p>
             <div>
               <h3>Information</h3>
-              <p>User ID:</p>
-
+              <p>User ID: {userId}</p>
+              <p>Reason: {reason}</p>
+              <p>Timestamp: {timestamp}</p>
             </div>
-          </header>
+          </content>
         </div>
       ) : (
         // Existing content
