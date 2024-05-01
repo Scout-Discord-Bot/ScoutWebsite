@@ -32,7 +32,7 @@ const Callback = () => {
 
         })
         .catch(error => {
-          if (error.response && error.response.status === 403 && error.response.data === "User attempting to authenticate is blacklisted") {
+          if (error.response && error.response.status === 403 && error.response.data.message === "User attempting to authenticate is blacklisted") {
             // Redirect to the /blacklisted route
             setIsBlacklisted(true); // Set isBlacklisted to true
           } else {
