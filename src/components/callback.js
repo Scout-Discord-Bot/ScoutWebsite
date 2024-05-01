@@ -36,9 +36,9 @@ const Callback = () => {
         .catch(error => {
           if (error.response && error.response.status === 403 && error.response.data.message === "User attempting to authenticate is blacklisted") {
             // Redirect to the /blacklisted route
-            setUserId(response.data._id);
-            setReason(response.data.reason);
-            const timestampInSeconds = response.data.timestamp;
+            setUserId(error.response.data.data.userid);
+            setReason(error.response.data.data.reason);
+            const timestampInSeconds = error.response.data.data.timestamp;
             const date = new Date(timestampInSeconds * 1000);
             const utcDate = date.toUTCString();
             setTimestamp(utcDate);
