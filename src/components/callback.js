@@ -71,6 +71,7 @@ const Callback = () => {
           <content>
             <h1>Access Denied</h1>
             <p>You have been blacklisted from using all services offered by Scout.</p>
+            <p>Your attempt to use our services has been logged.</p>
             <p>If you believe this is a mistake, please contact us at <a href="mailto:support@scoutbot.xyz">support@scoutbot.xyz</a></p>
             <div>
               <h3>Information</h3>
@@ -78,6 +79,18 @@ const Callback = () => {
               <p>Reason: {reason}</p>
               <p>Timestamp: {timestamp}</p>
             </div>
+            <button
+              style={{
+                backgroundColor: 'lightgray',
+                borderRadius: '10px',
+                transition: 'background-color 0.3s ease'
+              }}
+              onMouseOver={() => this.style.backgroundColor = 'gray'}
+              onMouseOut={() => this.style.backgroundColor = 'lightgray'}
+              onClick={() => navigate('/')}
+            >
+              Return to Home
+            </button>
           </content>
         </div>
       ) : (
