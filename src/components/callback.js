@@ -71,9 +71,9 @@ const Callback = () => {
 
           <content>
             <h1>Access Denied</h1>
-            <p>You have been blacklisted from using all services offered by Scout.</p>
+            <p>You have been blacklisted from using all services owned by Scout.</p>
             <p>Your attempt to use our services has been logged.</p>
-            <p>If you believe this is a mistake, please contact us at <a href="mailto:support@scoutbot.xyz">support@scoutbot.xyz</a></p>
+            <p>If you believe this is a mistake, or wish to appeal, please contact us at <a href="mailto:support@scoutbot.xyz">support@scoutbot.xyz</a>.</p>
             <div>
               <h3>Information</h3>
               <p>User ID: {userId}</p>
