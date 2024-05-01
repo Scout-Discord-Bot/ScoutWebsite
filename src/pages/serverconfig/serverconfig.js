@@ -4,6 +4,7 @@ import axios from 'axios';
 import Navigation from '../../components/navigation';
 import './serverconfig.css';
 import Notification from '../../components/notification';
+import { Helmet } from 'react-helmet';
 //import Cookies from 'js-cookie';
 
 function ServerConfig() {
@@ -165,6 +166,9 @@ function ServerConfig() {
 
     return (
         <div id='config'>
+            <Helmet>
+                <title>Scout | Server Configuration</title>
+            </Helmet>
             <Navigation></Navigation>
             <header>
                 <h1>Server Dashboard</h1>

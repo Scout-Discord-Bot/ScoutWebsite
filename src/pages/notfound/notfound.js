@@ -2,10 +2,14 @@ import './notfound.css';
 import Footer from '../../components/footer';
 import React from 'react';
 import Navigation from '../../components/navigation';
+import { Helmet } from 'react-helmet';
 
 const NotFound = () => {
     return (
         <div id='notfound'>
+            <Helmet>
+                <title>Scout | 404 Not Found</title>
+            </Helmet>
             <Navigation></Navigation>
             <header id='notfound'>
                 <h1>404 | Not Found</h1>

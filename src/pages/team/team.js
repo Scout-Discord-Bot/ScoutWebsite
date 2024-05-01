@@ -2,6 +2,7 @@ import './team.css'
 import React, { useEffect, useState } from 'react';
 import Navigation from '../../components/navigation';
 import Footer from '../../components/footer';
+import { Helmet } from 'react-helmet';
 
 const Team = () => {
 
@@ -20,7 +21,7 @@ const Team = () => {
 
         return (
             <div className="member-card">
-                <img src={imageUrl} alt={name} />
+                <img className="member-image" src={imageUrl} alt={name} />
                 <p>{name}</p>
                 <p>{role}</p>
             </div>
@@ -29,6 +30,9 @@ const Team = () => {
 
     return (
         <div id='team'>
+            <Helmet>
+                <title>Scout | Our Team</title>
+            </Helmet>
             <Navigation></Navigation>
             <header id='team'>
                 <h1>Meet the Team</h1>
@@ -40,12 +44,14 @@ const Team = () => {
                         <h2>Leadership</h2>
                         <div className="cardContainer">
                             <MemberCard name="YourDailyMoose" role="Chief Executive Officer" userId="574783977223749632" />
+                            <MemberCard name="1spinnewiel" role="Head of Operations" userId="639043904607485974" />
                         </div>
                     </section>
                     <section>
                         <h2>Staff</h2>
                         <div className='cardContainer'>
                             <MemberCard name="Albx1n" role="Head of Public Relations" userId="568737154025652224" />
+                            <MemberCard name="Limitless4315" role="Head of Community Safety" userId="691560662425403432" />
                         </div>
 
                     </section>

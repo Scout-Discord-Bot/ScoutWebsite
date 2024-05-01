@@ -1,9 +1,13 @@
 // Levels.js
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 function Levels() {
   return (
     <div>
+      <Helmet>
+        <title>Scout | Server Config - Levels</title>
+      </Helmet>
       <h1>Levels</h1>
       <form>
         <label>

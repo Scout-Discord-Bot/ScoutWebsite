@@ -4,6 +4,7 @@ import './welcome_messages.css';
 import axios from 'axios';
 import { useEffect, useState, useRef } from 'react';
 import EmbedCustomisation from '../../../components/EmbedCustomisation';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -44,6 +45,9 @@ function WelcomeMessages() {
 
     return (
         <div id='welcomeMessages'>
+            <Helmet>
+                <title>Scout | Server Config - Welcome Messages</title>
+            </Helmet>
             <Navigation />
 
             <header>

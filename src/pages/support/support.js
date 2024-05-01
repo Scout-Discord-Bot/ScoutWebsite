@@ -2,10 +2,14 @@ import React from 'react';
 import './support.css';
 import Navigation from '../../components/navigation';
 import Footer from '../../components/footer';
+import { Helmet } from 'react-helmet';
 
 const Support = () => {
     return (
         <div id='support'>
+            <Helmet>
+                <title>Scout | Support</title>
+            </Helmet>
             <Navigation></Navigation>
 
 

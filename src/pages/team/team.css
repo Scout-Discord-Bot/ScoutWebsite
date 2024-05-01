@@ -33,13 +33,16 @@
 
 .member-card {
   display: inline-block;
+  vertical-align: top;
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 1rem;
   margin: 1rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15); /* Add shadow */
   transition: transform 0.3s ease-in-out, background-color 0.3s ease; /* Add transition for transform */
-  /* Add more styles as needed */
+  width: 200px; /* adjust as needed */
+  height: 300px; /* adjust as needed */
+  text-align: center;
 }
 
 .member-card:hover {
@@ -56,12 +59,17 @@
   font-size: 30px;
 }
 
-.member-card img {
-  width: 80%;
-  height: auto;
+.member-card .member-image {
   border-radius: 15px;
+  width: 150px; /* adjust as needed */
+  height: 150px; /* adjust as needed */
+  object-fit: cover; /* this will ensure that the image covers the entire space of the specified width and height without stretching */
 }
 
 .cardContainer {
   text-align: center;
+}
+
+.member-card p {
+  font-size: 1.5vw; /* adjust as needed */
 }

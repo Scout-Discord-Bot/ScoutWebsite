@@ -3,10 +3,14 @@ import Navigation from '../../components/navigation';
 import './privacypolicy.css';
 import Footer from '../../components/footer';
 import legalLogo from '../../assets/LegalBW.png';
+import { Helmet } from 'react-helmet';
 
 const PrivacyPolicy = () => {
     return (
         <div id='legal'>
+            <Helmet>
+                <title>Scout | Privacy Policy</title>
+            </Helmet>
             <Navigation></Navigation>
 
             <header id='legal'>

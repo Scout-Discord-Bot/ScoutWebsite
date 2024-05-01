@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Notification from '../../../components/notification';
 import Select from 'react-select';
 import { getTimezones } from 'timezone-list';
+import { Helmet } from 'react-helmet';
 
 
 const timezoneOptions = getTimezones().map(tz => ({ value: tz, label: tz }));
@@ -138,6 +139,9 @@ function ServerSettings() {
 
   return (
     <div id='serverSettings'>
+      <Helmet>
+        <title>Scout | Server Config - Server Settings</title>
+      </Helmet>
       <Navigation />
       <header>
         <h1>Server Settings</h1>

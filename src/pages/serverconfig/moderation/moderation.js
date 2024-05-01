@@ -1,9 +1,13 @@
 // Moderation.js
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 function Moderation() {
   return (
     <div>
+      <Helmet>
+        <title>Scout | Server Config - Moderation</title>
+      </Helmet>
       <h1>Moderation</h1>
       <form>
         <label>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './dashboard.css';
 import axios from 'axios';
 import Navigation from '../../components/navigation';
+import { Helmet } from 'react-helmet';
 
 const Dashboard = (props) => {
     const [userData, setUserData] = useState(null);
@@ -54,6 +55,9 @@ const Dashboard = (props) => {
 
     return (
         <div id='dash'>
+            <Helmet>
+                <title>Scout | Dashboard</title>
+            </Helmet>
             <Navigation></Navigation>
 
             <header>

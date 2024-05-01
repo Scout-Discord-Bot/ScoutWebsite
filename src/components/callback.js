@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navigation from './navigation';
 //import Cookies from 'js-cookie';
+import { Helmet } from 'react-helmet';
 
 const Callback = () => {
   const navigate = useNavigate();
@@ -53,6 +54,9 @@ const Callback = () => {
       height: '100vh',
       backgroundColor: 'white'
     }}>
+      <Helmet>
+        <title>Scout | OAuth Callback</title>
+      </Helmet>
       {isBlacklisted ? (
         // Content to show when the user is blacklisted
         <div>

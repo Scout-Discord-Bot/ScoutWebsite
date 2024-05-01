@@ -8,6 +8,7 @@ import moderation from '../../assets/moderation.svg';
 import logging from '../../assets/logging.svg';
 import utility from '../../assets/utility.svg';
 import fun from '../../assets/fun.svg';
+import { Helmet } from 'react-helmet';
 
 //import startFeatures from '../../assets/startFeatures.svg';
 
@@ -23,6 +24,10 @@ const Home = () => {
 
 
         <div>
+            <Helmet>
+                <title>Scout | Discord Bot</title>
+                <meta name="description" content="Scout is the next step in the evolution of Discord bots. With powerful moderation, logging, utility, and fun commands, Scout is the ultimate solution for server management." />
+            </Helmet>
             <Navigation />
             <section>
 
