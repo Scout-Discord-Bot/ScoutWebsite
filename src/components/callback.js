@@ -84,10 +84,11 @@ const Callback = () => {
               style={{
                 backgroundColor: 'lightgray',
                 borderRadius: '10px',
-                transition: 'background-color 0.3s ease'
+                transition: 'background-color 0.3s ease',
+                padding: '5px',
               }}
-              onMouseOver={() => this.style.backgroundColor = 'gray'}
-              onMouseOut={() => this.style.backgroundColor = 'lightgray'}
+              onMouseOver={(e) => e.target.style.backgroundColor = 'gray'}
+              onMouseOut={(e) => e.target.style.backgroundColor = 'lightgray'}
               onClick={() => navigate('/')}
             >
               Return to Home
