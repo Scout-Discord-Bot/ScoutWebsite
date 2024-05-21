@@ -61,9 +61,22 @@ const TermsOfUse = () => {
                             </li>
                         </ul>
 
-                        <p><strong>Service Blacklist Policy: </strong>Misuse of the platform, including but not limited to violations of these Terms of Service or engaging in prohibited activities, may result in blacklisting from our services. Blacklisting may entail revoking access to certain features or services for users who have violated community guidelines or engaged in prohibited behaviour. Blacklists are issued at the discretion of Scout for any reason deemed valid by the company.
+                        <p><strong>Service Blacklist Policy: </strong>Misuse of the platform, including but not limited to violations of these Terms of Service or engaging in prohibited activities, may result in blacklisting from our services. Blacklisting may entail revoking access to certain features or services for users who have violated community guidelines or engaged in prohibited behaviour. Blacklists are issued at the discretion of Scout for any reason deemed valid by the company.</p>
 
-                        </p>
+                        <p><strong>Blacklist Restrictions:</strong></p>
+                        <ul>
+                            <li><strong>Web Dashboard & Discord Server:</strong> Users who are blacklisted will no longer have access to our web dashboard and Discord server.</li>
+                            <li><strong>Server Ownership:</strong> Any server that includes our bot and is owned by a blacklisted user will have the bot's functionality disabled.</li>
+                        </ul>
+
+                        <p><strong>Continued Usage:</strong> Users can continue to use the bot in other servers not owned by them or Scout. This restriction does not affect activities in these servers.</p>
+
+                        <p><strong>Data Requests:</strong> If any data is required, such as leveling or configuration data from a blocked server, it can be requested. This data will be provided at our discretion. All attempts to access our services will be logged and monitored.</p>
+
+                        <p><strong>Circumventing the Blacklist:</strong> Any attempts to bypass blacklists will lead to additional consequences.</p>
+
+                        <p><strong>Appeals and Data Requests:</strong> For data requests or to appeal a blacklist, please contact us at support@scoutbot.xyz with your Discord user ID, Guild ID (if applicable), and the reason for your appeal (if applicable).</p>
+
                     </section>
 
                     <section id="privacy">
