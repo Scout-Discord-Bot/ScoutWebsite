@@ -9,15 +9,15 @@ const TermsOfUse = () => {
     return (
         <div id="legal">
             <Helmet>
-                <title>Scout | Terms of Service</title>
+                <title>Scout | Terms of Service</title> 
 
             </Helmet>
             <Navigation></Navigation>
 
             <header id="legal">
                 <h1>Terms of Service</h1>
-                <h2>Last Updated: 6th March 2024 (v1.1)</h2>
-                <p>Effective From: 11th March 2024</p>
+                <h2>Last Updated: 21st May 2024 (v1.2)</h2>
+                <p>Effective From: 31st May 2024</p>
             </header>
             <main>
                 <img id="legal" src={legalLogo} alt="Scout Legal Logo" />
