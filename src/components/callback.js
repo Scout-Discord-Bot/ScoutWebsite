@@ -20,37 +20,42 @@ const Callback = () => {
 
 
     if (code) {
-      axios.post('https://api.scoutbot.xyz/oauth/callback', {
-        oauth2state: state,
-        code: code
-      }, {
-        withCredentials: true
-      })
-        .then(response => {
-          if (response.status === 200) {
-            console.log('Authentication successful');
-            navigate('/dashboard');
-          }
-
+      setTimeout(() => {
+        axios.post('https://api.scoutbot.xyz/oauth/callback', {
+          oauth2state: state,
+          code: code
+        }, {
+          withCredentials: true
         })
-        .catch(error => {
-          if (error.response && error.response.status === 403 && error.response.data.message === "User attempting to authenticate is blacklisted") {
-            // Redirect to the /blacklisted route
-            setUserId(error.response.data.data.userid);
-            setReason(error.response.data.data.reason);
-            const timestampInSeconds = error.response.data.data.timestamp;
-            const date = new Date(timestampInSeconds * 1000);
-            const utcDate = date.toUTCString();
-            setTimestamp(utcDate);
-            setIsBlacklisted(true); // Set isBlacklisted to true
-          } else {
-            if (error.response && error.response.status === 400) {
-              console.error('Invalid code');
-              navigate('/');
+          .then(response => {
+            if (response.status === 200) {
+              console.log('Authentication successful');
+              navigate('/dashboard');
             }
-            console.error('Authentication error:', error);
-          }
-        });
+
+          })
+          .catch(error => {
+            if (error.response && error.response.status === 403 && error.response.data.message === "User attempting to authenticate is blacklisted") {
+              // Redirect to the /blacklisted route
+              setUserId(error.response.data.data.userid);
+              setReason(error.response.data.data.reason);
+              const timestampInSeconds = error.response.data.data.timestamp;
+              const date = new Date(timestampInSeconds * 1000);
+              const utcDate = date.toUTCString();
+              setTimestamp(utcDate);
+              setIsBlacklisted(true); // Set isBlacklisted to true
+            } else {
+              if (error.response && error.response.status === 400) {
+                console.error('Invalid code');
+                navigate('/');
+              }
+              console.error('Authentication error:', error);
+            }
+          }); setTimeout(() => {
+            console.log('Timeout');
+            navigate('/');
+          }, 5000); // 5 seconds
+      }, 20000); // 20 seconds
     }
   }, [navigate]);
 
