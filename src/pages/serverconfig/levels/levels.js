@@ -8,7 +8,7 @@ import './levels.css';
 
 function Levels() {
   const { guildId } = useParams();
-  const [guild, setGuild] = useState(null);
+  const [guild] = useState(null);
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState(null);
 
