@@ -17,7 +17,7 @@ const Home = () => {
 
     useEffect(() => {
         ScrollReveal().reveal('.description', { delay: 200 });
-        ScrollReveal().reveal('.features', { delay: 400 });
+        ScrollReveal().reveal('.features', { delay: 200 });
     }, []);
 
     return (

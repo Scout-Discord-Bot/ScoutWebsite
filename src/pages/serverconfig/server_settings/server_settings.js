@@ -69,7 +69,7 @@ function ServerSettings() {
     )
       .then(response => {
         console.log('Changes saved!');
-        
+
         addNotification('success', 'Bot colour changes saved successfully.');
       })
       .catch(error => {
@@ -199,6 +199,15 @@ function ServerSettings() {
               left: '5px',
             }),
           }}
+        />
+      </section>
+      <section>
+        <h2>Nickname</h2>
+        <h3>Set the bot's nickname in your server.</h3>
+        <input
+          className='nickname'
+          type="text"
+          placeholder="Nickname"
         />
       </section>
       <div className="notification-container">

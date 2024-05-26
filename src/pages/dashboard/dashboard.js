@@ -45,7 +45,7 @@ const Dashboard = (props) => {
                     <p>{guild.owner ? 'Owner' : (guild.permissions & 0x8) === 0x8 || (guild.permissions & 0x20) === 0x20 ? 'Bot Administrator' : ''}</p>
                 </div>
 
-                <a className='serverButton' href={guild.isBotInGuild ? `/dashboard/${guild.id}` : `https://discord.com/oauth2/authorize?client_id=1157304018939424970&permissions=8&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth%2Fcallback&scope=identify+email+guilds+bot&guild_id=${guild.id}`} rel="noopener noreferrer">
+                <a className='serverButton' href={guild.isBotInGuild ? `/dashboard/${guild.id}` : `https://discord.com/oauth2/authorize?client_id=1157304018939424970&permissions=8&redirect_uri=https%3A%2F%2Fscoutbot.xyz%2Foauth%2Fcallback&scope=bot+applications.commands&guild_id=${guild.id}`} rel="noopener noreferrer">
                     {guild.isBotInGuild ? 'Configure' : 'Invite'}
                 </a>
 
