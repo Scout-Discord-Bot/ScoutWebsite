@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-//import Cookies from 'js-cookie';
 import { Helmet } from 'react-helmet';
 
 const Callback = () => {
@@ -18,9 +17,13 @@ const Callback = () => {
 
     console.log(state);
 
-
     if (code) {
       setTimeout(() => {
+        const authTimeout = setTimeout(() => {
+          console.log('Timeout');
+          navigate('/');
+        }, 20000); // 20 seconds
+
         axios.post('https://api.scoutbot.xyz/oauth/callback', {
           oauth2state: state,
           code: code
@@ -28,13 +31,14 @@ const Callback = () => {
           withCredentials: true
         })
           .then(response => {
+            clearTimeout(authTimeout); // Clear the timeout if the request succeeds
             if (response.status === 200) {
               console.log('Authentication successful');
               navigate('/dashboard');
             }
-
           })
           .catch(error => {
+            clearTimeout(authTimeout); // Clear the timeout in case of an error
             if (error.response && error.response.status === 403 && error.response.data.message === "User attempting to authenticate is blacklisted") {
               // Redirect to the /blacklisted route
               setUserId(error.response.data.data.userid);
@@ -51,11 +55,8 @@ const Callback = () => {
               }
               console.error('Authentication error:', error);
             }
-          }); setTimeout(() => {
-            console.log('Timeout');
-            navigate('/');
-          }, 5000); // 5 seconds
-      }, 20000); // 20 seconds
+          });
+      }, 2000); // 2 seconds
     }
   }, [navigate]);
 
@@ -73,7 +74,6 @@ const Callback = () => {
       {isBlacklisted ? (
         // Content to show when the user is blacklisted
         <div>
-
           <content>
             <h1>Access Denied</h1>
             <p>You have been blacklisted from using all services owned by Scout.</p>
@@ -101,23 +101,70 @@ const Callback = () => {
           </content>
         </div>
       ) : (
-        // Existing content
         <div style={{
-          border: '16px solid #f3f3f3',
-          borderRadius: '50%',
-          borderTop: '16px solid #69dc9e',
-          width: '120px',
-          height: '120px',
-          animation: 'spin 2s linear infinite'
-        }} />
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
+            width: '120px',
+            height: '120px',
+          }}>
+            <div style={{
+              position: 'absolute',
+              border: '8px solid transparent',
+              borderTop: '8px solid #69dc9e',
+              borderRadius: '50%',
+              width: '120px',
+              height: '120px',
+              animation: 'spin 2s linear infinite',
+            }}></div>
+            <div style={{
+              position: 'absolute',
+              border: '8px solid transparent',
+              borderTop: '8px solid #f3f3f3',
+              borderRadius: '50%',
+              width: '90px',
+              height: '90px',
+              animation: 'spin 1.5s linear infinite reverse',
+            }}></div>
+            <div style={{
+              position: 'absolute',
+              border: '8px solid transparent',
+              borderTop: '8px solid #69dc9e',
+              borderRadius: '50%',
+              width: '60px',
+              height: '60px',
+              animation: 'spin 1s linear infinite',
+            }}></div>
+          </div>
+          <div style={{
+            marginTop: '20px',
+            fontSize: '24px',
+            fontWeight: 'bold',
+            color: '#69dc9e',
+            animation: 'fade 1.5s ease-in-out infinite',
+          }}>Logging in...</div>
+          <style>{`
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+            @keyframes fade {
+              0%, 100% { opacity: 1; }
+              50% { opacity: 0.5; }
+            }
+          `}</style>
+        </div>
       )}
-      <style>{`
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }
+
 export default Callback;
