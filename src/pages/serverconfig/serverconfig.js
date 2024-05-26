@@ -22,39 +22,39 @@ function ServerConfig() {
     };
 
     useEffect(() => {
-            axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true })
-                .then(response => {
-                    const guilds = response.data.guilds;
-                    const guild = guilds.find(g => g.id === guildId); // Find the guild with the matching guildId
+        axios.get(`https://api.scoutbot.xyz/userdata`, { withCredentials: true })
+            .then(response => {
+                const guilds = response.data.guilds;
+                const guild = guilds.find(g => g.id === guildId); // Find the guild with the matching guildId
 
-                    if (guild) {
-                        setGuild(guild.name); // Set the guild's name to state
-                    } else {
-                        console.error('Guild not found!');
-                    }
-                })
-                .catch(error => {
-                    console.error('There was an error retrieving the data!', error);
-                });
+                if (guild) {
+                    setGuild(guild.name); // Set the guild's name to state
+                } else {
+                    console.error('Guild not found!');
+                }
+            })
+            .catch(error => {
+                console.error('There was an error retrieving the data!', error);
+            });
     }, [guildId]);
 
 
     useEffect(() => {
         axios.get('https://api.scoutbot.xyz/guildsettings', { withCredentials: true, params: { guildId: guildId } })
             .then(response => {
-            const modules = response.data.modules;
-            setToggleState({
-                welcomeMessages: modules.welcomeMessages?.enabled,
-                leaveMessages: modules.leaveMessages?.enabled,
-                moderation: modules.moderation,
-                fun: modules.fun,
-                utility: modules.utility,
-                levels: modules.levels?.enabled,
-                logging: modules.logging?.enabled
-            });
+                const modules = response.data.modules;
+                setToggleState({
+                    welcomeMessages: modules.welcomeMessages?.enabled,
+                    leaveMessages: modules.leaveMessages?.enabled,
+                    moderation: modules.moderation,
+                    fun: modules.fun,
+                    utility: modules.utility,
+                    levels: modules.levels?.enabled,
+                    logging: modules.logging?.enabled
+                });
             })
             .catch(error => {
-            console.error('There was an error retrieving the data!', error);
+                console.error('There was an error retrieving the data!', error);
             });
     }, [guildId]);
 
@@ -101,7 +101,7 @@ function ServerConfig() {
                 )
                     .then(response => {
                         addNotification({ type: 'success', text: `${getDisplayName(module)} has been Enabled!` });
-            
+
                     })
                     .catch(error => {
                         console.error('There was an error updating the module!', error);
@@ -136,33 +136,39 @@ function ServerConfig() {
     const ModuleCard = ({ module, description, enabled }) => {
         return (
             <div className="dashboard-home-card">
-                <h2>{getDisplayName(module)}</h2>
-                <p>{description}</p>
-                <label className={`switch switch-${module}`} htmlFor={module}>
-                    <input type="checkbox" id={module} checked={enabled} onChange={() => handleToggle(module)} />
-                    <span className="slider round"></span>
-                </label>
-                {enabled && (
-                    <div>
+                <div className="module-info">
+                    <h2>{getDisplayName(module)}</h2>
+                    <p>{description}</p>
+                </div>
+                <div className="module-controls">
+                    <label className={`switch switch-${module}`} htmlFor={module}>
+                        <input type="checkbox" id={module} checked={enabled} onChange={() => handleToggle(module)} />
+                        <span className="slider round"></span>
+                    </label>
+                    {enabled && (
                         <a href={`/dashboard/${guildId}/${module}`}>
                             <button className="button">Configure Module</button>
                         </a>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         );
     };
 
-
     const ServerSettingsCard = () => {
         return (
             <Link to="serverSettings" className="dashboard-home-card">
-                <h2>Server Settings</h2>
-                <p>Configure your server settings here.</p>
-                <button className="button">Configure Server Settings</button>
+                <div className="module-info">
+                    <h2>Server Settings</h2>
+                    <p>Configure your server settings here.</p>
+                </div>
+                <div className="module-controls">
+                    <button className="button">Configure Server Settings</button>
+                </div>
             </Link>
         );
     };
+
 
     return (
         <div id='config'>
