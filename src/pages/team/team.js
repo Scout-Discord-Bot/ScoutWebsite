@@ -52,6 +52,7 @@ const Team = () => {
                         <div className='cardContainer'>
                             <MemberCard name="Albx1n" role="Head of Public Relations" userId="568737154025652224" />
                             <MemberCard name="Limitless4315" role="Head of Community Safety" userId="691560662425403432" />
+                            <MemberCard name="ZederrNye" role="Head of Product Development" userId="988287557479571526" />
                         </div>
 
                     </section>
@@ -59,8 +60,9 @@ const Team = () => {
                         <h2>Contributors</h2>
                         <div className='cardContainer'>
                             <MemberCard name="Limitless4315" role="Contributor" userId="691560662425403432" />
-                            <MemberCard name="1spinnewiel" role="Contributor" userId="639043904607485974" />
+                            <MemberCard name="1spinnewiel" role="Contributor" userId="639043904607485974" />    
                             <MemberCard name="Albx1n" role="Contributor" userId="568737154025652224" />
+                            <MemberCard name="ZederrNye" role="Contributor" userId="988287557479571526" />
                         </div>
                     </section>
                 </div>
