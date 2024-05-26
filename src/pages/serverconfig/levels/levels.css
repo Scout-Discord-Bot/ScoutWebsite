@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Lexend";
+  src: url(../../../fonts/Lexend.ttf);
+}
+
+body {
+  font-family: "Lexend", sans-serif;
+}
+
+#levels header {
+  text-align: center;
+  padding: 15px;
+  background-color: #69dc9e;
+  color: white;
+}
+
+#levels header h1 {
+  font-size: 50px;
+}
+
+#levels header h2 {
+  font-size: 30px;
+}
