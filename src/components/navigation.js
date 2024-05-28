@@ -38,7 +38,7 @@ function Navigation() {
 
 
   useEffect(() => {
-    axios.get('https://api.scoutbot.xyz/oauth/authorize', { withCredentials: true })
+    axios.get('https://api.scoutbot.xyz/oauth/authorise', { withCredentials: true })
       .then(response => {
   
         setAuthUrl(response.data.authUrl);
