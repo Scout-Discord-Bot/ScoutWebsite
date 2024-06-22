@@ -25,7 +25,7 @@ function ServerSettings() {
   const { guildId } = useParams();
   const [guild, setGuild] = useState(null);
   const [selectedTimezone, setSelectedTimezone] = useState(null);
-  const [defaultColor, setDefaultColor] = useState(DEFAULT_COLORS.default);
+  const [primaryColor, setPrimaryColor] = useState(DEFAULT_COLORS.default);
   const [successColor, setSuccessColor] = useState(DEFAULT_COLORS.success);
   const [specialColor, setSpecialColor] = useState(DEFAULT_COLORS.special);
   const [errorColor, setErrorColor] = useState(DEFAULT_COLORS.error);
@@ -34,7 +34,7 @@ function ServerSettings() {
   const [notificationData, setNotificationData] = useState([]);
 
   const resetColors = () => {
-    setDefaultColor(DEFAULT_COLORS.default);
+    setPrimaryColor(PRIMARY_COLORS.default);
     setSuccessColor(DEFAULT_COLORS.success);
     setErrorColor(DEFAULT_COLORS.error);
     setWarningColor(DEFAULT_COLORS.warning);
@@ -62,7 +62,7 @@ function ServerSettings() {
         guildId: guildId,
         setting: 'colours',
         value: {
-          default: defaultColor,
+          primary: primaryColor,
           success: successColor,
           error: errorColor,
           warning: warningColor,
@@ -157,8 +157,8 @@ function ServerSettings() {
         <h2>Bot Colours</h2>
         <div>
           <div>
-            <h3>Default</h3>
-            <input type="color" value={defaultColor} onChange={(e) => handleColorChange(setDefaultColor, e.target.value)} />
+            <h3>Primary</h3>
+            <input type="color" value={primaryColor} onChange={(e) => handleColorChange(setPrimaryColor, e.target.value)} />
           </div>
           <div>
             <h3>Success</h3>
