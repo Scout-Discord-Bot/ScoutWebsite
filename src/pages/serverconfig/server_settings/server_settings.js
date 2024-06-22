@@ -14,7 +14,7 @@ const timezoneOptions = getTimezones().map(tz => ({ value: tz, label: tz }));
 const sortedTimezoneOptions = timezoneOptions.sort((a, b) => (a.label < b.label ? -1 : 1));
 
 const DEFAULT_COLORS = {
-  default: '#69dc9e',
+  primary: '#69dc9e',
   success: '#bcf7cb',
   error: '#f6786a',
   warning: '#f8c57c',
@@ -25,7 +25,7 @@ function ServerSettings() {
   const { guildId } = useParams();
   const [guild, setGuild] = useState(null);
   const [selectedTimezone, setSelectedTimezone] = useState(null);
-  const [primaryColor, setPrimaryColor] = useState(DEFAULT_COLORS.default);
+  const [primaryColor, setPrimaryColor] = useState(DEFAULT_COLORS.primary);
   const [successColor, setSuccessColor] = useState(DEFAULT_COLORS.success);
   const [specialColor, setSpecialColor] = useState(DEFAULT_COLORS.special);
   const [errorColor, setErrorColor] = useState(DEFAULT_COLORS.error);
@@ -34,7 +34,7 @@ function ServerSettings() {
   const [notificationData, setNotificationData] = useState([]);
 
   const resetColors = () => {
-    setPrimaryColor(PRIMARY_COLORS.default);
+    setPrimaryColor(DEFAULT_COLORS.primary);
     setSuccessColor(DEFAULT_COLORS.success);
     setErrorColor(DEFAULT_COLORS.error);
     setWarningColor(DEFAULT_COLORS.warning);
@@ -129,7 +129,7 @@ function ServerSettings() {
     axios.get('https://api.scoutbot.xyz/guildsettings', { withCredentials: true, params: { guildId: guildId } })
       .then(response => {
         const colors = response.data.serverSettings.colours;
-        setDefaultColor(colors.default);
+        setPrimaryColor(colors.primary);
         setSuccessColor(colors.success);
         setErrorColor(colors.error);
         setWarningColor(colors.warning);
