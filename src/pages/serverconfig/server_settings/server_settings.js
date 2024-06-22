@@ -18,6 +18,7 @@ const DEFAULT_COLORS = {
   success: '#bcf7cb',
   error: '#f6786a',
   warning: '#f8c57c',
+  special: '#966FD6'
 };
 
 function ServerSettings() {
@@ -26,6 +27,7 @@ function ServerSettings() {
   const [selectedTimezone, setSelectedTimezone] = useState(null);
   const [defaultColor, setDefaultColor] = useState(DEFAULT_COLORS.default);
   const [successColor, setSuccessColor] = useState(DEFAULT_COLORS.success);
+  const [specialColor, setSpecialColor] = useState(DEFAULT_COLORS.special);
   const [errorColor, setErrorColor] = useState(DEFAULT_COLORS.error);
   const [warningColor, setWarningColor] = useState(DEFAULT_COLORS.warning);
   const [hasChanges, setHasChanges] = useState(false);
@@ -36,6 +38,7 @@ function ServerSettings() {
     setSuccessColor(DEFAULT_COLORS.success);
     setErrorColor(DEFAULT_COLORS.error);
     setWarningColor(DEFAULT_COLORS.warning);
+    setSpecialColor(DEFAULT_COLORS.special);
     setHasChanges(true);
   };
 
@@ -62,7 +65,9 @@ function ServerSettings() {
           default: defaultColor,
           success: successColor,
           error: errorColor,
-          warning: warningColor
+          warning: warningColor,
+          special: specialColor
+
         }
       },
       { withCredentials: true }
@@ -166,6 +171,10 @@ function ServerSettings() {
           <div>
             <h3>Warning</h3>
             <input type="color" value={warningColor} onChange={(e) => handleColorChange(setWarningColor, e.target.value)} />
+          </div>
+          <div>
+            <h3>Special</h3>
+            <input type="color" value={specialColor} onChange={(e) => handleColorChange(setSpecialColor, e.target.value)} />
           </div>
         </div>
         <button className={`button ${hasChanges ? 'has-changes' : 'no-changes'}`} disabled={!hasChanges} onClick={saveChanges}>Save Changes</button>
